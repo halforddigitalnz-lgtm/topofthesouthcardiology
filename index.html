@@ -1422,7 +1422,8 @@
       .steps-grid { grid-template-columns: 1fr; gap: 40px; }
       .steps-grid::before { display: none; }
       .coverage-grid { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .services-secondary { grid-template-columns: 1fr 1fr !important; }
       .tele-section { grid-template-columns: 1fr; }
       .tele-content { padding: 56px 32px; }
       .accordion-grid { grid-template-columns: 1fr; }
@@ -1671,7 +1672,7 @@
       </div>
 
       <!-- Outpatient tests secondary grid -->
-      <div style="margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div class="services-secondary" style="margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
 
         <div class="service-card-text reveal reveal-d1">
           <span class="service-tag">Diagnostics</span>
@@ -1784,94 +1785,7 @@
         </a>
       </div>
     </div>
-    <!-- Coronary Angiogram Visualization -->
-    <div class="angio-video-wrap" style="background:#0D0C11;position:relative;overflow:hidden;">
-      <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet"
-           style="position:absolute;inset:0;width:100%;height:100%;" aria-hidden="true">
-        <defs>
-          <pattern id="ag-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(139,26,46,0.07)" stroke-width="0.4"/>
-          </pattern>
-          <filter id="vglow" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <filter id="vglow-sm" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-
-        <!-- Background grid -->
-        <rect width="480" height="360" fill="url(#ag-grid)"/>
-
-        <!-- Aortic root ping indicator -->
-        <circle class="angio-ping-1" cx="238" cy="90" r="3" fill="none" stroke="#8B1A2E" stroke-width="1"/>
-        <circle class="angio-ping-2" cx="238" cy="90" r="3" fill="none" stroke="#8B1A2E" stroke-width="0.7"/>
-        <circle cx="238" cy="90" r="3.5" fill="#9B2030" opacity="0.85"/>
-
-        <!-- Left Main Coronary -->
-        <path class="vessel vessel-lm" d="M 238,90 Q 222,98 210,109"
-              stroke="#9B2030" stroke-width="2.8" filter="url(#vglow)"/>
-
-        <!-- LAD (Left Anterior Descending) — main trunk -->
-        <path class="vessel vessel-lad" d="M 210,109 Q 216,158 213,208 Q 211,260 211,302 Q 210,320 213,340"
-              stroke="#9B2030" stroke-width="2.2" filter="url(#vglow)"/>
-
-        <!-- LAD Diagonal 1 -->
-        <path class="vessel vessel-d1" d="M 212,165 Q 190,180 168,200"
-              stroke="#8B1A2E" stroke-width="1.4" filter="url(#vglow-sm)"/>
-
-        <!-- LAD Diagonal 2 -->
-        <path class="vessel vessel-d2" d="M 212,220 Q 193,234 176,252"
-              stroke="#8B1A2E" stroke-width="1.2" filter="url(#vglow-sm)"/>
-
-        <!-- LAD Diagonal 3 (small) -->
-        <path class="vessel vessel-d3" d="M 211,270 Q 196,280 183,292"
-              stroke="#8B1A2E" stroke-width="0.9"/>
-
-        <!-- LCx (Left Circumflex) -->
-        <path class="vessel vessel-lcx" d="M 210,109 Q 175,130 152,160 Q 128,190 112,220"
-              stroke="#9B2030" stroke-width="1.9" filter="url(#vglow)"/>
-
-        <!-- LCx Obtuse Marginal 1 -->
-        <path class="vessel vessel-om1" d="M 140,174 Q 118,198 98,224"
-              stroke="#8B1A2E" stroke-width="1.3" filter="url(#vglow-sm)"/>
-
-        <!-- LCx Obtuse Marginal 2 -->
-        <path class="vessel vessel-om2" d="M 118,212 Q 100,230 85,250"
-              stroke="#8B1A2E" stroke-width="1"/>
-
-        <!-- RCA (Right Coronary Artery) -->
-        <path class="vessel vessel-rca" d="M 238,90 Q 268,104 292,132 Q 320,164 334,204 Q 344,240 338,280 Q 334,300 324,314"
-              stroke="#9B2030" stroke-width="2.2" filter="url(#vglow)"/>
-
-        <!-- RCA Acute Marginal Branch -->
-        <path class="vessel vessel-am" d="M 310,174 Q 334,190 354,204"
-              stroke="#8B1A2E" stroke-width="1.3" filter="url(#vglow-sm)"/>
-
-        <!-- PDA (Posterior Descending Artery) -->
-        <path class="vessel vessel-pda" d="M 324,314 Q 302,330 280,338 Q 264,344 254,352"
-              stroke="#8B1A2E" stroke-width="1.5" filter="url(#vglow-sm)"/>
-
-        <!-- Vessel labels -->
-        <text class="angio-lbl angio-lbl-1" x="216" y="350" font-family="Inter,sans-serif" font-size="7"
-              fill="rgba(139,26,46,0.7)" letter-spacing="0.15em">LAD</text>
-        <text class="angio-lbl angio-lbl-2" x="90" y="232" font-family="Inter,sans-serif" font-size="7"
-              fill="rgba(139,26,46,0.7)" letter-spacing="0.15em">LCx</text>
-        <text class="angio-lbl angio-lbl-3" x="340" y="292" font-family="Inter,sans-serif" font-size="7"
-              fill="rgba(139,26,46,0.7)" letter-spacing="0.15em">RCA</text>
-      </svg>
-
-      <!-- Scan info overlay -->
-      <div style="position:absolute;top:26px;left:28px;z-index:3;pointer-events:none;display:flex;align-items:center;gap:8px;">
-        <span style="display:block;width:5px;height:5px;border-radius:50%;background:#8B1A2E;opacity:0.7;"></span>
-        <span style="font-family:'Inter',sans-serif;font-size:8.5px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(139,26,46,0.5);">Coronary Angiography · LAO 45°</span>
-      </div>
-      <div style="position:absolute;bottom:24px;right:28px;z-index:3;pointer-events:none;text-align:right;">
-        <div style="font-family:'Inter',sans-serif;font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.1);">TOSC · Cardiac Cath Lab</div>
-      </div>
-    </div>
+    <div class="angio-video-wrap"></div>
   </section>
 
   <!-- ═══ TELEMEDICINE ═══ -->
@@ -2164,33 +2078,6 @@
     }
   </script>
 
-  <!-- Video fade loop -->
-  <script>
-  (function() {
-    const vid = document.querySelector('.region-video');
-    if (!vid) return;
-    let fading = false;
-    vid.addEventListener('timeupdate', () => {
-      if (!vid.duration) return;
-      const rem = vid.duration - vid.currentTime;
-      if (rem < 1.8 && !fading) {
-        fading = true;
-        vid.style.transition = 'opacity 1.4s ease';
-        vid.style.opacity = '0';
-      }
-      if (vid.currentTime < 0.5 && fading) {
-        fading = false;
-        vid.style.transition = 'none';
-        vid.style.opacity = '0';
-        setTimeout(() => {
-          vid.style.transition = 'opacity 1.6s ease';
-          vid.style.opacity = '1';
-        }, 40);
-      }
-    });
-  })();
-
-  </script>
 
 </body>
 </html>
