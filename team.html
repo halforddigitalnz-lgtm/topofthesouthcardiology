@@ -19,6 +19,18 @@
       background: var(--surface);
       padding: 32px 40px;
       border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .doctor-portrait {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
     }
     .doctor-card-head h3 {
       font-family: 'Cormorant Garamond', serif;
@@ -53,6 +65,22 @@
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .staff-portrait {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      border: 1.5px solid var(--border);
+      margin-bottom: 14px;
+    }
+    @media (max-width: 640px) {
+      .doctor-card-head { padding: 20px 24px; gap: 16px; }
+      .doctor-portrait { width: 72px; height: 72px; }
+      .doctor-card-body { padding: 20px 24px; }
     }
     .staff-card h4 {
       font-family: 'Cormorant Garamond', serif;
@@ -155,9 +183,12 @@
         <!-- DR NICK FISHER -->
         <div class="doctor-card reveal">
           <div class="doctor-card-head">
-            <h3>Dr Nick Fisher</h3>
-            <div class="doctor-quals">MBBS MRCP FRACP FCSANZ MD</div>
-            <div class="doctor-specialty">Founder &amp; Clinical Director · Interventional cardiologist</div>
+            <img src="images/meet-the-team/nfisher.webp" alt="Dr Nick Fisher" class="doctor-portrait">
+            <div>
+              <h3>Dr Nick Fisher</h3>
+              <div class="doctor-quals">MBBS MRCP FRACP FCSANZ MD</div>
+              <div class="doctor-specialty">Founder &amp; Clinical Director · Interventional cardiologist</div>
+            </div>
           </div>
           <div class="doctor-card-body">
             <p>Dr Fisher is the founder and clinical director of Top of the South Cardiology, and serves as Head of the Department of Cardiology at Nelson Marlborough DHB. His clinical expertise spans cardiac imaging via CT and coronary angiography, stent and pacemaker insertion, cardiovascular risk assessment, valvular heart disease, and arrhythmias.</p>
@@ -169,9 +200,12 @@
         <!-- DR TAMMY PEGG -->
         <div class="doctor-card reveal reveal-d1">
           <div class="doctor-card-head">
-            <h3>Dr Tammy Pegg</h3>
-            <div class="doctor-quals">MBChB (Honours) MRCP FRACP FCSANZ DPhil</div>
-            <div class="doctor-specialty">Heart failure &amp; non-invasive imaging specialist</div>
+            <img src="images/meet-the-team/tpegg.webp" alt="Dr Tammy Pegg" class="doctor-portrait">
+            <div>
+              <h3>Dr Tammy Pegg</h3>
+              <div class="doctor-quals">MBChB (Honours) MRCP FRACP FCSANZ DPhil</div>
+              <div class="doctor-specialty">Heart failure &amp; non-invasive imaging specialist</div>
+            </div>
           </div>
           <div class="doctor-card-body">
             <p>Dr Pegg graduated with honours from the University of Leeds in 2000 and completed her basic medical training at University of Manchester Hospitals. She became a Member of the Royal College of Physicians in 2003 and began advanced cardiology training in the Wessex Deanery in 2004.</p>
@@ -183,9 +217,12 @@
         <!-- DR NIALL FOLEY -->
         <div class="doctor-card reveal reveal-d2">
           <div class="doctor-card-head">
-            <h3>Dr Niall Foley</h3>
-            <div class="doctor-quals">MB ChB BAO FRACP</div>
-            <div class="doctor-specialty">Electrophysiology &amp; cardiac devices</div>
+            <img src="images/meet-the-team/nfoley.avif" alt="Dr Niall Foley" class="doctor-portrait">
+            <div>
+              <h3>Dr Niall Foley</h3>
+              <div class="doctor-quals">MB ChB BAO FRACP</div>
+              <div class="doctor-specialty">Electrophysiology &amp; cardiac devices</div>
+            </div>
           </div>
           <div class="doctor-card-body">
             <p>Originally from Ireland, Dr Foley completed his undergraduate degree from University College Dublin with honours, followed by early postgraduate training at the Mater Hospital in Dublin. He relocated to New Zealand in 2011 and completed his advanced cardiology training in Wellington before completing a specialist fellowship in electrophysiology and cardiac devices.</p>
@@ -209,42 +246,49 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
 
         <div class="staff-card reveal reveal-d1">
+          <img src="images/meet-the-team/kfisher.avif" alt="Kate Fisher" class="staff-portrait">
           <h4>Kate Fisher</h4>
           <span class="staff-title">Practice Manager</span>
           <p>Often the first point of contact, Kate brings a nursing background and deep familiarity with cardiac care to her role managing the practice. She guides patients through every stage — consultation, investigation, and follow-up.</p>
         </div>
 
         <div class="staff-card reveal reveal-d2">
+          <img src="images/meet-the-team/swhite.avif" alt="Steve White" class="staff-portrait">
           <h4>Steve White</h4>
           <span class="staff-title">Senior Sonographer</span>
           <p>With over 35 years of experience across New Zealand, the UK, and Australia, Steve is arguably one of the most experienced cardiac sonographers in the country. He is dual-trained in paediatric and adult echocardiography and brings a radiography and general ultrasound background to his work — and a genuine passion for his profession.</p>
         </div>
 
         <div class="staff-card reveal reveal-d3">
+          <img src="images/meet-the-team/sdixon.jpg" alt="Sarah Dixon" class="staff-portrait">
           <h4>Sarah Dixon</h4>
           <span class="staff-title">Cardiology Specialist Nurse</span>
           <p>Sarah brings over 35 years as a registered nurse, including 22 years as a cardiology specialist. She completed her master's degree in 2015 and holds additional postgraduate qualifications. Her focus is patient assessment, management, and education — helping people truly understand their heart health and the reasons behind their treatment.</p>
         </div>
 
         <div class="staff-card reveal reveal-d1">
+          <img src="images/meet-the-team/kwilliams.avif" alt="Kirstie Williams" class="staff-portrait">
           <h4>Kirstie Williams</h4>
           <span class="staff-title">Charge Nurse Manager — Interventional Suite</span>
           <p>Originally from Wales, Kirstie completed her nursing degree in Nelson before pursuing a cardiology career at Wellington's catheterisation laboratory. She returned to Nelson's cath lab to take on the charge nurse role, and is passionate about delivering gold standard patient care in our interventional suite.</p>
         </div>
 
         <div class="staff-card reveal reveal-d2">
+          <img src="images/meet-the-team/jbeth.avif" alt="Jobeth Lancaster" class="staff-portrait">
           <h4>Jobeth Lancaster</h4>
           <span class="staff-title">Senior Technologist — Nelson</span>
           <p>A clinical physiologist with a postgraduate diploma in medical technology, Jobeth is trained in cardiac and respiratory testing. She conducts treadmill and lung function testing with a commitment to providing quality clinical results to support physician decision-making.</p>
         </div>
 
         <div class="staff-card reveal reveal-d3">
+          <img src="images/meet-the-team/swebby.avif" alt="Sarah Webby" class="staff-portrait">
           <h4>Sarah Webby</h4>
           <span class="staff-title">Senior Technologist — Wairau</span>
           <p>Sarah trained in physiology in Christchurch with a focus on electrophysiology, and worked at one of England's largest NHS trusts before joining our team. She manages pacemaker care and Holter monitoring at Wairau Hospital, providing specialist cardiac support to Marlborough-based patients.</p>
         </div>
 
         <div class="staff-card reveal reveal-d1">
+          <img src="images/meet-the-team/dhampson.avif" alt="Debbie Hampson" class="staff-portrait">
           <h4>Debbie Hampson</h4>
           <span class="staff-title">Senior Technologist</span>
           <p>Debbie greets patients for treadmill testing and brings extensive experience ensuring every test provides clinically useful, high-quality information for our cardiologists.</p>

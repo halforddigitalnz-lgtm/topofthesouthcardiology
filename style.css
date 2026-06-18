@@ -756,6 +756,11 @@ h1, h2, h3, h4 {
   .hero-actions { flex-direction: column; align-items: flex-start; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
   .test-meta { grid-template-columns: 1fr; }
+  /* Reduce internal card padding so content breathes on narrow screens */
+  .feature-card { padding: 24px 20px; }
+  .location-card-head { padding: 20px 20px; }
+  .location-card-body { padding: 20px 20px; }
+  .callout { padding: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
