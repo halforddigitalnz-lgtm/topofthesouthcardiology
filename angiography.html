@@ -427,7 +427,7 @@
       items.forEach(m => {
         const len  = m.el.getTotalLength();
         const dash = len * 0.3;          // show 30% of path at any time (matches original pathLength 0.3→1 range midpoint)
-        const baseOp = Math.min(0.05 + m.i * 0.016, 0.5);
+        const baseOp = Math.min(0.015 + m.i * 0.003, 0.12);
         const dur  = (20 + Math.random() * 10) * 1000;
         const phase = Math.random();     // randomise starting position along path
 
@@ -450,7 +450,7 @@
         items.forEach(m => {
           const t      = ((now / m.dur) + m.phase) % 1;
           const offset = -(t * m.len);
-          const pulse  = 0.3 + 0.3 * Math.sin(t * Math.PI * 2); // 0.3 → 0.6 → 0.3
+          const pulse  = 0.4 + 0.2 * Math.sin(t * Math.PI * 2); // 0.4 → 0.6 → 0.4
           m.el.style.strokeDashoffset = offset;
           m.el.setAttribute('stroke', `rgba(255,255,255,${(m.baseOp * (0.5 + pulse)).toFixed(3)})`);
         });
