@@ -8,6 +8,74 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .doctor-card {
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      background: white;
+    }
+    .doctor-card-head {
+      background: var(--surface);
+      padding: 32px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .doctor-card-head h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .doctor-quals {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--crimson);
+      margin-bottom: 8px;
+    }
+    .doctor-specialty {
+      font-size: 14px;
+      color: var(--ink-mid);
+    }
+    .doctor-card-body {
+      padding: 32px 40px;
+    }
+    .doctor-card-body p {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .doctor-card-body p:last-child { margin-bottom: 0; }
+    .staff-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 24px 28px;
+    }
+    .staff-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .staff-title {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .staff-card p {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      line-height: 1.65;
+    }
+  </style>
 </head>
 <body>
 
@@ -45,7 +113,7 @@
       </div>
       <span class="eyebrow eyebrow-crimson">Our team</span>
       <h1>The Nelson Marlborough<br><em>Cardiology Team</em></h1>
-      <p class="lead">A small, experienced team of specialist cardiologists — people who have built their careers serving this region and the patients who live here.</p>
+      <p class="lead">A small, experienced team of specialist cardiologists and clinical staff — people who have built their careers serving this region and the patients who live here.</p>
     </div>
   </div>
 
@@ -64,58 +132,130 @@
     <div class="section-wrap" style="max-width:900px;">
       <div class="reveal" style="text-align:center;">
         <blockquote style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.4rem);font-weight:400;font-style:italic;color:var(--ink);line-height:1.4;max-width:680px;margin:0 auto 32px;">
-          "We give this community the very best heart care — with compassion, respect, and a genuine commitment to the people of the Top of the South."
+          "To give our community the very best heart care — with compassion, respect, understanding and expertise."
         </blockquote>
         <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
           <div style="width:40px;height:1px;background:var(--crimson);"></div>
-          <span style="font-size:12.5px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);">The Cardiology Team</span>
+          <span style="font-size:12.5px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);">Our mission</span>
           <div style="width:40px;height:1px;background:var(--crimson);"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT THE PRACTICE -->
+  <!-- CARDIOLOGISTS -->
   <section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="section-wrap">
-      <div class="two-col" style="align-items:start;">
-        <div class="reveal">
-          <span class="eyebrow">About the practice</span>
-          <h2>Specialist cardiology, delivered personally</h2>
-          <div class="divider"></div>
-          <p style="color:var(--ink-mid);line-height:1.7;margin-bottom:16px;">Top of the South Cardiology has been providing specialist cardiac services to the Nelson and Marlborough regions for over two decades. We are a small, close-knit team — which means consistent care from people who know you, rather than a different face at every appointment.</p>
-          <p style="color:var(--ink-mid);line-height:1.7;margin-bottom:16px;">Our cardiologists have experience across the full spectrum of cardiac conditions, from initial assessment and investigation through to complex interventional procedures in our purpose-built catheterisation laboratory.</p>
-          <p style="color:var(--ink-mid);line-height:1.7;">We hold clinics in both Nelson and Marlborough, and are committed to making expert cardiac care accessible to everyone in the region — without the need to travel to Christchurch or Wellington.</p>
-        </div>
-        <div class="reveal reveal-d1">
-          <div class="feature-card" style="margin-bottom:16px;">
-            <div class="feature-card-icon">
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            </div>
-            <h3 style="font-size:1.2rem;margin-bottom:8px;">Board-certified specialists</h3>
-            <p style="font-size:14.5px;color:var(--ink-mid);">All of our cardiologists hold Fellowship of the Royal Australasian College of Physicians (FRACP) with a cardiology subspecialty.</p>
+      <div class="reveal" style="margin-bottom:48px;">
+        <span class="eyebrow">Specialist cardiologists</span>
+        <h2>Our doctors</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:32px;">
+
+        <!-- DR NICK FISHER -->
+        <div class="doctor-card reveal">
+          <div class="doctor-card-head">
+            <h3>Dr Nick Fisher</h3>
+            <div class="doctor-quals">MBBS MRCP FRACP FCSANZ MD</div>
+            <div class="doctor-specialty">Founder &amp; Clinical Director · Interventional cardiologist</div>
           </div>
-          <div class="feature-card" style="margin-bottom:16px;">
-            <div class="feature-card-icon">
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            </div>
-            <h3 style="font-size:1.2rem;margin-bottom:8px;">Committed to this region</h3>
-            <p style="font-size:14.5px;color:var(--ink-mid);">Our team has deep roots in the Nelson-Marlborough community. We're not visiting specialists — we live here, and we plan to continue serving this community for many years to come.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-card-icon">
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-            </div>
-            <h3 style="font-size:1.2rem;margin-bottom:8px;">Ongoing learning &amp; professional development</h3>
-            <p style="font-size:14.5px;color:var(--ink-mid);">We maintain active involvement in professional development, peer review, and regional health networks to ensure our practice reflects current evidence and best practice.</p>
+          <div class="doctor-card-body">
+            <p>Dr Fisher is the founder and clinical director of Top of the South Cardiology, and serves as Head of the Department of Cardiology at Nelson Marlborough DHB. His clinical expertise spans cardiac imaging via CT and coronary angiography, stent and pacemaker insertion, cardiovascular risk assessment, valvular heart disease, and arrhythmias.</p>
+            <p>Prior to relocating to New Zealand in 2006, Dr Fisher served as Cardiologist for the Royal Navy (rank: Surgeon Commander) and trained at the Royal Brompton Hospital in London — one of the world's leading cardiac centres. He saw operational service in the Falklands, Gulf, and Adriatic.</p>
+            <p>Dr Fisher is the author of <em>Frontline Cardiology</em> and co-authored New Zealand's Expected Standards of Access to Secondary Care. Outside the clinic, he enjoys fishing and vineyard management.</p>
           </div>
         </div>
+
+        <!-- DR TAMMY PEGG -->
+        <div class="doctor-card reveal reveal-d1">
+          <div class="doctor-card-head">
+            <h3>Dr Tammy Pegg</h3>
+            <div class="doctor-quals">MBChB (Honours) MRCP FRACP FCSANZ DPhil</div>
+            <div class="doctor-specialty">Heart failure &amp; non-invasive imaging specialist</div>
+          </div>
+          <div class="doctor-card-body">
+            <p>Dr Pegg graduated with honours from the University of Leeds in 2000 and completed her basic medical training at University of Manchester Hospitals. She became a Member of the Royal College of Physicians in 2003 and began advanced cardiology training in the Wessex Deanery in 2004.</p>
+            <p>She holds a DPhil (PhD) from the University of Oxford (2008), where her research focused on improving cardiac surgical techniques and using cardiac MRI for heart function assessment. Her doctoral work earned her recognition as a finalist in both the Vivenne Thomas American Heart Association Young Investigator Award and the New Zealand Heart Foundation Young Investigator Award.</p>
+            <p>Her clinical specialties include heart failure, non-invasive imaging (CT and cardiac MRI), cardiovascular risk assessment, valvular disease, and palpitations. Dr Pegg has been a passionate advocate for public access defibrillators across the region.</p>
+          </div>
+        </div>
+
+        <!-- DR NIALL FOLEY -->
+        <div class="doctor-card reveal reveal-d2">
+          <div class="doctor-card-head">
+            <h3>Dr Niall Foley</h3>
+            <div class="doctor-quals">MB ChB BAO FRACP</div>
+            <div class="doctor-specialty">Electrophysiology &amp; cardiac devices</div>
+          </div>
+          <div class="doctor-card-body">
+            <p>Originally from Ireland, Dr Foley completed his undergraduate degree from University College Dublin with honours, followed by early postgraduate training at the Mater Hospital in Dublin. He relocated to New Zealand in 2011 and completed his advanced cardiology training in Wellington before completing a specialist fellowship in electrophysiology and cardiac devices.</p>
+            <p>Dr Foley's clinical focus is on electrophysiology and cardiac pacing — the diagnosis and management of complex heart rhythm disorders. He places particular emphasis on shared decision-making and patient education, ensuring his patients understand their condition and the options available to them.</p>
+            <p>Outside medicine, he enjoys football, running, snow sports, and travel.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CLINICAL TEAM -->
+  <section class="section">
+    <div class="section-wrap">
+      <div class="reveal" style="margin-bottom:40px;">
+        <span class="eyebrow">Clinical &amp; support team</span>
+        <h2>The people behind your care</h2>
+        <p style="color:var(--ink-mid);margin-top:8px;max-width:560px;">Our cardiologists are supported by a highly experienced clinical team with decades of combined expertise in cardiac technology, nursing, and patient care.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
+
+        <div class="staff-card reveal reveal-d1">
+          <h4>Kate Fisher</h4>
+          <span class="staff-title">Practice Manager</span>
+          <p>Often the first point of contact, Kate brings a nursing background and deep familiarity with cardiac care to her role managing the practice. She guides patients through every stage — consultation, investigation, and follow-up.</p>
+        </div>
+
+        <div class="staff-card reveal reveal-d2">
+          <h4>Steve White</h4>
+          <span class="staff-title">Senior Sonographer</span>
+          <p>With over 35 years of experience across New Zealand, the UK, and Australia, Steve is arguably one of the most experienced cardiac sonographers in the country. He is dual-trained in paediatric and adult echocardiography and brings a radiography and general ultrasound background to his work — and a genuine passion for his profession.</p>
+        </div>
+
+        <div class="staff-card reveal reveal-d3">
+          <h4>Sarah Dixon</h4>
+          <span class="staff-title">Cardiology Specialist Nurse</span>
+          <p>Sarah brings over 35 years as a registered nurse, including 22 years as a cardiology specialist. She completed her master's degree in 2015 and holds additional postgraduate qualifications. Her focus is patient assessment, management, and education — helping people truly understand their heart health and the reasons behind their treatment.</p>
+        </div>
+
+        <div class="staff-card reveal reveal-d1">
+          <h4>Kirstie Williams</h4>
+          <span class="staff-title">Charge Nurse Manager — Interventional Suite</span>
+          <p>Originally from Wales, Kirstie completed her nursing degree in Nelson before pursuing a cardiology career at Wellington's catheterisation laboratory. She returned to Nelson's cath lab to take on the charge nurse role, and is passionate about delivering gold standard patient care in our interventional suite.</p>
+        </div>
+
+        <div class="staff-card reveal reveal-d2">
+          <h4>Jobeth Lancaster</h4>
+          <span class="staff-title">Senior Technologist — Nelson</span>
+          <p>A clinical physiologist with a postgraduate diploma in medical technology, Jobeth is trained in cardiac and respiratory testing. She conducts treadmill and lung function testing with a commitment to providing quality clinical results to support physician decision-making.</p>
+        </div>
+
+        <div class="staff-card reveal reveal-d3">
+          <h4>Sarah Webby</h4>
+          <span class="staff-title">Senior Technologist — Wairau</span>
+          <p>Sarah trained in physiology in Christchurch with a focus on electrophysiology, and worked at one of England's largest NHS trusts before joining our team. She manages pacemaker care and Holter monitoring at Wairau Hospital, providing specialist cardiac support to Marlborough-based patients.</p>
+        </div>
+
+        <div class="staff-card reveal reveal-d1">
+          <h4>Debbie Hampson</h4>
+          <span class="staff-title">Senior Technologist</span>
+          <p>Debbie greets patients for treadmill testing and brings extensive experience ensuring every test provides clinically useful, high-quality information for our cardiologists.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- AFFILIATIONS -->
-  <section class="section">
+  <section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="section-wrap">
       <div class="reveal" style="margin-bottom:40px;">
         <span class="eyebrow">Affiliations &amp; accreditation</span>
@@ -124,7 +264,7 @@
       <div class="three-col">
         <div class="feature-card reveal reveal-d1">
           <h3 style="font-size:1.15rem;margin-bottom:8px;">Nelson Marlborough Health</h3>
-          <p style="font-size:14px;color:var(--ink-mid);">We work closely with Nelson Marlborough Health, providing specialist cardiac services to both privately referred and publicly funded patients across the region.</p>
+          <p style="font-size:14px;color:var(--ink-mid);">We work closely with Nelson Marlborough Health, providing specialist cardiac services to both privately referred and publicly funded patients across the region. Dr Fisher serves as Head of Department of Cardiology.</p>
         </div>
         <div class="feature-card reveal reveal-d2">
           <h3 style="font-size:1.15rem;margin-bottom:8px;">Southern Cross Affiliated Provider</h3>
@@ -132,7 +272,31 @@
         </div>
         <div class="feature-card reveal reveal-d3">
           <h3 style="font-size:1.15rem;margin-bottom:8px;">RACP &amp; CSANZ Members</h3>
-          <p style="font-size:14px;color:var(--ink-mid);">Our cardiologists are Fellows of the Royal Australasian College of Physicians and members of the Cardiac Society of Australia and New Zealand.</p>
+          <p style="font-size:14px;color:var(--ink-mid);">Our cardiologists hold Fellowship of the Royal Australasian College of Physicians (FRACP) and are members of the Cardiac Society of Australia and New Zealand (CSANZ).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN THE NEWS -->
+  <section class="section">
+    <div class="section-wrap">
+      <div class="reveal" style="margin-bottom:40px;">
+        <span class="eyebrow">Recognition</span>
+        <h2>What others say about our team</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
+        <div class="reveal reveal-d1" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:28px 32px;">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--ink);line-height:1.55;margin-bottom:16px;">"If you are going to have a heart attack then the Nelson region is the place to have it... the cardiologists at Nelson Hospital are reputed to be some of the best in the world."</p>
+          <span style="font-size:12px;color:var(--ink-light);font-weight:500;text-transform:uppercase;letter-spacing:0.1em;">Nelson Mail, 2015</span>
+        </div>
+        <div class="reveal reveal-d2" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:28px 32px;">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--ink);line-height:1.55;margin-bottom:16px;">"The Nelson Hospital Cardiology team delivers some of the highest-quality heart care in the country."</p>
+          <span style="font-size:12px;color:var(--ink-light);font-weight:500;text-transform:uppercase;letter-spacing:0.1em;">Stuff.co.nz, 2014</span>
+        </div>
+        <div class="reveal reveal-d3" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:28px 32px;">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--ink);line-height:1.55;margin-bottom:16px;">"Two unique surgeons at Nelson Hospital have built a cardiac unit with world-class capabilities."</p>
+          <span style="font-size:12px;color:var(--ink-light);font-weight:500;text-transform:uppercase;letter-spacing:0.1em;">Wild Tomato Magazine, 2010</span>
         </div>
       </div>
     </div>
@@ -170,9 +334,9 @@
         <a href="contact.html">Contact &amp; locations</a>
       </div>
       <div class="footer-col">
-        <h4>Locations</h4>
-        <p>Lower Queen Street Health<br>Nelson</p>
-        <p style="margin-top:12px;">Nelson Hospital Campus<br>Marlborough</p>
+        <h4>Contact</h4>
+        <p><a href="mailto:clinicalsupport@topofthesouthcardiology.co.nz" style="color:var(--ink-light);text-decoration:none;">clinicalsupport@<br>topofthesouthcardiology.co.nz</a></p>
+        <p style="margin-top:8px;font-size:13px;">349-355 Lower Queen Street<br>Richmond, Nelson</p>
       </div>
     </div>
     <div class="footer-bottom">
