@@ -11,70 +11,70 @@
   <style>
     .angio-hero {
       background: linear-gradient(135deg, #1A0D10 0%, #2D1420 45%, #1E0E14 100%);
-      padding: 140px 0 80px;
+      padding: 160px 0 100px;
       position: relative;
       overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
     }
+    /* Crimson radial glow */
     .angio-hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(139,26,46,0.18) 0%, transparent 65%);
+      background: radial-gradient(ellipse at 75% 50%, rgba(139,26,46,0.22) 0%, transparent 60%);
       pointer-events: none;
+      z-index: 1;
+    }
+    /* Animated paths background */
+    .angio-paths-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .angio-paths-bg svg {
+      width: 100%;
+      height: 100%;
     }
     .angio-hero-inner {
+      position: relative;
+      z-index: 2;
       max-width: 1140px;
       margin: 0 auto;
       padding: 0 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
+      width: 100%;
+    }
+    .angio-hero-text {
+      max-width: 620px;
     }
     .angio-hero-text .eyebrow { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.2); }
-    .angio-hero-text h1 { color: white; margin: 16px 0 24px; }
-    .angio-hero-text h1 em { color: rgba(255,255,255,0.75); }
-    .angio-hero-text p { color: rgba(255,255,255,0.7); font-size: 16.5px; line-height: 1.7; margin-bottom: 32px; }
-    .angio-visual {
-      position: relative;
-      height: 340px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .angio-hero-text h1 {
+      color: white;
+      margin: 16px 0 24px;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.15;
     }
-    /* Pulse rings animation */
-    .pulse-ring {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(139,26,46,0.35);
-      animation: pulse-expand 3.5s ease-out infinite;
+    .angio-hero-text h1 em { color: rgba(255,255,255,0.72); font-style: italic; }
+    .angio-hero-text p { color: rgba(255,255,255,0.68); font-size: 16.5px; line-height: 1.75; margin-bottom: 36px; }
+    /* Letter-drop entrance animation */
+    @keyframes letter-drop {
+      from { transform: translateY(52px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
     }
-    .pulse-ring:nth-child(1) { width: 80px; height: 80px; animation-delay: 0s; }
-    .pulse-ring:nth-child(2) { width: 140px; height: 140px; animation-delay: 0.7s; }
-    .pulse-ring:nth-child(3) { width: 210px; height: 210px; animation-delay: 1.4s; }
-    .pulse-ring:nth-child(4) { width: 290px; height: 290px; animation-delay: 2.1s; }
-    @keyframes pulse-expand {
-      0% { opacity: 0.9; transform: scale(0.6); }
-      100% { opacity: 0; transform: scale(1.1); }
-    }
-    .pulse-core {
-      width: 48px; height: 48px;
-      background: var(--crimson);
-      border-radius: 50%;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 0 32px rgba(139,26,46,0.6), 0 0 64px rgba(139,26,46,0.2);
-    }
-    .pulse-core::after {
-      content: '';
-      position: absolute;
-      inset: 8px;
-      background: rgba(255,255,255,0.3);
-      border-radius: 50%;
+    .letter-anim {
+      display: inline-block;
+      animation: letter-drop 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
     @media (max-width: 860px) {
-      .angio-hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .angio-visual { height: 200px; }
+      .angio-hero { padding: 120px 0 64px; }
+      .angio-hero-inner { padding: 0 24px; }
+      .angio-hero-text { max-width: 100%; }
+      .angio-hero-text h1 { font-size: clamp(2rem, 8vw, 3rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .letter-anim { animation: none; }
     }
   </style>
 </head>
@@ -107,6 +107,12 @@
 
   <!-- DARK HERO -->
   <div class="angio-hero">
+
+    <!-- Flowing paths background (ported from BackgroundPaths component) -->
+    <div class="angio-paths-bg" aria-hidden="true">
+      <svg id="bg-paths-svg" viewBox="0 0 696 316" fill="none" preserveAspectRatio="xMidYMid slice"></svg>
+    </div>
+
     <div class="angio-hero-inner">
       <div class="angio-hero-text">
         <div class="breadcrumb" style="--crumb-color:rgba(255,255,255,0.45);">
@@ -115,19 +121,12 @@
           <span style="color:rgba(255,255,255,0.6);">Angiography Suite</span>
         </div>
         <span class="eyebrow">Our facilities</span>
-        <h1>Our Purpose-Built<br><em>Angiography Suite</em></h1>
+        <h1 id="angio-title">Our Purpose-Built<br><em>Angiography Suite</em></h1>
         <p>One of only a handful of private cardiac catheterisation facilities in New Zealand's South Island — purpose-built, right here in Nelson. Complex cardiac procedures no longer require a trip to Christchurch or Wellington.</p>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
           <a href="#procedures" class="btn" style="background:var(--crimson);color:white;">What we can treat</a>
           <a href="referred.html" class="btn" style="background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.35);">I've been referred</a>
         </div>
-      </div>
-      <div class="angio-visual">
-        <div class="pulse-ring"></div>
-        <div class="pulse-ring"></div>
-        <div class="pulse-ring"></div>
-        <div class="pulse-ring"></div>
-        <div class="pulse-core"></div>
       </div>
     </div>
   </div>
@@ -373,6 +372,7 @@
   </footer>
 
   <script>
+    // Nav
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => {
@@ -381,10 +381,117 @@
       hamburger.setAttribute('aria-expanded', open);
       mobileMenu.setAttribute('aria-hidden', !open);
     });
+
+    // Scroll reveals
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ─── Flowing background paths (ported from BackgroundPaths / framer-motion) ─────
+    (function () {
+      const svg = document.getElementById('bg-paths-svg');
+      if (!svg) return;
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Generate cubic-bezier path string matching the original component formula
+      function pathD(i, pos) {
+        const x0 = -380 - i * 5 * pos;
+        const y0 = -189 + i * 6;
+        const x1 = -312 - i * 5 * pos;
+        const y1 =  216 - i * 6;
+        const x2 =  152 - i * 5 * pos;
+        const y2 =  343 - i * 6;
+        const x3 =  616 - i * 5 * pos;
+        const y3 =  470 - i * 6;
+        const x4 =  684 - i * 5 * pos;
+        const y4 =  875 - i * 6;
+        return `M${x0} ${y0}C${x0} ${y0} ${x1} ${y1} ${x2} ${y2}C${x3} ${y3} ${x4} ${y4} ${x4} ${y4}`;
+      }
+
+      // Build all 72 paths (36 × 2 directions) and append to SVG
+      const items = [];
+      [1, -1].forEach(pos => {
+        for (let i = 0; i < 36; i++) {
+          const el = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          el.setAttribute('d', pathD(i, pos));
+          el.setAttribute('fill', 'none');
+          el.setAttribute('stroke-width', (0.5 + i * 0.03).toFixed(2));
+          svg.appendChild(el);
+          items.push({ el, i });
+        }
+      });
+
+      // Measure path lengths now they're in the DOM, set initial dash state
+      items.forEach(m => {
+        const len  = m.el.getTotalLength();
+        const dash = len * 0.3;          // show 30% of path at any time (matches original pathLength 0.3→1 range midpoint)
+        const baseOp = Math.min(0.05 + m.i * 0.016, 0.5);
+        const dur  = (20 + Math.random() * 10) * 1000;
+        const phase = Math.random();     // randomise starting position along path
+
+        m.len    = len;
+        m.dash   = dash;
+        m.baseOp = baseOp;
+        m.dur    = dur;
+        m.phase  = phase;
+
+        m.el.style.strokeDasharray  = `${dash} ${len}`;
+        m.el.style.strokeDashoffset = `${-(phase * len)}`;
+        m.el.setAttribute('stroke', `rgba(255,255,255,${baseOp.toFixed(3)})`);
+      });
+
+      // Reduced-motion: static snapshot, no RAF loop
+      if (reduced) return;
+
+      // Animation loop: scroll dashoffset + breathe opacity (matches framer pathOffset [0,1,0] & opacity [0.3,0.6,0.3])
+      function tick(now) {
+        items.forEach(m => {
+          const t      = ((now / m.dur) + m.phase) % 1;
+          const offset = -(t * m.len);
+          const pulse  = 0.3 + 0.3 * Math.sin(t * Math.PI * 2); // 0.3 → 0.6 → 0.3
+          m.el.style.strokeDashoffset = offset;
+          m.el.setAttribute('stroke', `rgba(255,255,255,${(m.baseOp * (0.5 + pulse)).toFixed(3)})`);
+        });
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+
+    // ─── Letter-drop entrance for hero headline (matches framer spring stagger) ────
+    (function () {
+      const h1 = document.getElementById('angio-title');
+      if (!h1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      let delay = 0.1; // initial delay so it starts after page paint
+
+      function wrapLetters(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.textContent;
+          const frag = document.createDocumentFragment();
+          for (let i = 0; i < text.length; i++) {
+            const ch = text[i];
+            if (ch === ' ' || ch === '\n') {
+              frag.appendChild(document.createTextNode(ch));
+              delay += 0.018;
+            } else {
+              const span = document.createElement('span');
+              span.className = 'letter-anim';
+              span.style.animationDelay = delay.toFixed(3) + 's';
+              span.textContent = ch;
+              frag.appendChild(span);
+              delay += 0.032;
+            }
+          }
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === Node.ELEMENT_NODE && node.nodeName !== 'BR') {
+          Array.from(node.childNodes).forEach(wrapLetters);
+        }
+      }
+
+      Array.from(h1.childNodes).forEach(wrapLetters);
+    })();
   </script>
 </body>
 </html>
