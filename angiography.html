@@ -8,334 +8,150 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .angio-hero {
-      background: linear-gradient(135deg, #1A0D10 0%, #2D1420 45%, #1E0E14 100%);
-      padding: 160px 0 100px;
-      position: relative;
-      overflow: hidden;
-      min-height: 520px;
-      display: flex;
-      align-items: center;
-    }
-    /* Crimson radial glow */
-    .angio-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 75% 50%, rgba(139,26,46,0.22) 0%, transparent 60%);
-      pointer-events: none;
-      z-index: 1;
-    }
-    /* Animated paths background */
-    .angio-paths-bg {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .angio-paths-bg svg {
-      width: 100%;
-      height: 100%;
-    }
-    .angio-hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 40px;
-      width: 100%;
-    }
-    .angio-hero-text {
-      max-width: 620px;
-    }
-    .angio-hero-text .eyebrow { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.2); }
-    .angio-hero-text h1 {
-      color: white;
-      margin: 16px 0 24px;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      line-height: 1.15;
-    }
-    .angio-hero-text h1 em { color: rgba(255,255,255,0.72); font-style: italic; }
-    .angio-hero-text p { color: rgba(255,255,255,0.68); font-size: 16.5px; line-height: 1.75; margin-bottom: 36px; }
-    /* Letter-drop entrance animation */
-    @keyframes letter-drop {
-      from { transform: translateY(52px); opacity: 0; }
-      to   { transform: translateY(0);    opacity: 1; }
-    }
-    .letter-anim {
-      display: inline-block;
-      animation: letter-drop 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-    @media (max-width: 860px) {
-      .angio-hero { padding: 120px 0 64px; }
-      .angio-hero-inner { padding: 0 24px; }
-      .angio-hero-text { max-width: 100%; }
-      .angio-hero-text h1 { font-size: clamp(2rem, 8vw, 3rem); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .letter-anim { animation: none; }
-    }
-  </style>
 </head>
 <body>
 
-  <nav class="nav" style="background:rgba(26,13,16,0.95);border-bottom-color:rgba(255,255,255,0.08);">
+  <nav class="nav">
     <div class="nav-inner">
-      <div class="nav-logo"><a href="index.html"><img src="branding-assets/logo-white.png" alt="Top of the South Cardiology"></a></div>
+      <div class="nav-logo"><a href="index.html"><img src="branding-assets/logo-black.png" alt="Top of the South Cardiology"></a></div>
       <ul class="nav-links">
-        <li><a href="referred.html" style="color:rgba(255,255,255,0.75);">For Patients</a></li>
-        <li><a href="tests.html" style="color:rgba(255,255,255,0.75);">Outpatient Tests</a></li>
-        <li><a href="angiography.html" style="color:white;">Angiography Suite</a></li>
-        <li><a href="team.html" style="color:rgba(255,255,255,0.75);">Our Team</a></li>
-        <li><a href="gp.html" style="color:rgba(255,255,255,0.75);">For GPs</a></li>
-        <li><a href="contact.html" class="nav-cta" style="background:var(--crimson);color:white;">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="team.html">Meet the Team</a></li>
+        <li><a href="tests.html">Out Patient Tests</a></li>
+        <li><a href="angiography.html" style="color:var(--crimson);">Angiography Suite</a></li>
+        <li><a href="useful-links.html">Useful Links</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
       </ul>
-      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" style="--bar-color:white;">
-        <span style="background:white;"></span><span style="background:white;"></span><span style="background:white;"></span>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
     </div>
     <div class="nav-mobile" id="mobile-menu" aria-hidden="true">
-      <a href="referred.html">For Patients</a>
-      <a href="tests.html">Outpatient Tests</a>
+      <a href="index.html">Home</a>
+      <a href="team.html">Meet the Team</a>
+      <a href="tests.html">Out Patient Tests</a>
       <a href="angiography.html" style="color:var(--crimson);">Angiography Suite</a>
-      <a href="team.html">Our Team</a>
-      <a href="gp.html">For GPs</a>
+      <a href="useful-links.html">Useful Links</a>
       <a href="contact.html" class="nav-cta-mobile">Contact us</a>
     </div>
   </nav>
 
-  <!-- DARK HERO -->
-  <div class="angio-hero">
-
-    <!-- Flowing paths background (ported from BackgroundPaths component) -->
-    <div class="angio-paths-bg" aria-hidden="true">
-      <svg id="bg-paths-svg" viewBox="0 0 696 316" fill="none" preserveAspectRatio="xMidYMid slice"></svg>
-    </div>
-
-    <div class="angio-hero-inner">
-      <div class="angio-hero-text">
-        <div class="breadcrumb" style="--crumb-color:rgba(255,255,255,0.45);">
-          <a href="index.html" style="color:rgba(255,255,255,0.45);">Home</a>
-          <span class="breadcrumb-sep" style="color:rgba(255,255,255,0.3);">›</span>
-          <span style="color:rgba(255,255,255,0.6);">Angiography Suite</span>
-        </div>
-        <span class="eyebrow">Our facilities</span>
-        <h1 id="angio-title">Our Purpose-Built<br><em>Angiography Suite</em></h1>
-        <p>One of only a handful of private cardiac catheterisation facilities in New Zealand's South Island — purpose-built, right here in Nelson. Complex cardiac procedures no longer require a trip to Christchurch or Wellington.</p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="#procedures" class="btn" style="background:var(--crimson);color:white;">What we can treat</a>
-          <a href="referred.html" class="btn" style="background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.35);">I've been referred</a>
-        </div>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Angiography Suite</span>
+      </div>
+      <span class="eyebrow eyebrow-crimson">Procedures</span>
+      <h1>Angiography <em>Suite</em></h1>
+      <div class="chip-row">
+        <a href="#video" class="chip">Watch the Video</a>
+        <a href="#angiogram" class="chip">Angiogram</a>
+        <a href="#pacemaker" class="chip">Pacemaker Insertion</a>
+        <a href="#stent" class="chip">Coronary Angioplasty &amp; Stenting</a>
+        <a href="#catheterisation" class="chip">Right Heart Catheterisation</a>
+        <a href="#ffr" class="chip">Fractional Flow Reserve</a>
+        <a href="#ivus" class="chip">Intra Vascular Ultrasound</a>
+        <a href="#oct" class="chip">Optical Coherence Tomography</a>
       </div>
     </div>
   </div>
 
-  <!-- SIGNIFICANCE -->
-  <section class="section" style="background:var(--surface);border-bottom:1px solid var(--border);">
+  <!-- VIDEO -->
+  <section class="section" id="video">
     <div class="section-wrap">
-      <div class="two-col" style="align-items:start;">
-        <div class="reveal">
-          <span class="eyebrow">What this means for you</span>
-          <h2>World-class cardiac care,<br>without leaving the region</h2>
-          <div class="divider"></div>
-          <p style="color:var(--ink-mid);line-height:1.7;margin-bottom:16px;">Before Top of the South Cardiology established this facility, patients requiring cardiac catheterisation procedures would routinely face the considerable stress and expense of travelling to Christchurch, Wellington, or Dunedin — sometimes at very short notice.</p>
-          <p style="color:var(--ink-mid);line-height:1.7;margin-bottom:16px;">Our angiography suite brings that expertise home. It's equipped with advanced fluoroscopic imaging technology operated by experienced interventional cardiologists who understand the particular needs of patients in this region.</p>
-          <p style="color:var(--ink-mid);line-height:1.7;">For many patients, this means receiving a diagnosis and treatment in a single visit — with their family nearby, in a place they know.</p>
-        </div>
-        <div class="reveal reveal-d1">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-            <div style="background:white;border:1px solid var(--border);border-radius:6px;padding:24px;text-align:center;">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:500;color:var(--crimson);line-height:1;">1 of few</div>
-              <div style="font-size:13px;color:var(--ink-mid);margin-top:6px;line-height:1.4;">Private cardiac cath labs in South Island, NZ</div>
-            </div>
-            <div style="background:white;border:1px solid var(--border);border-radius:6px;padding:24px;text-align:center;">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:500;color:var(--crimson);line-height:1;">20+</div>
-              <div style="font-size:13px;color:var(--ink-mid);margin-top:6px;line-height:1.4;">Years of specialist cardiac services in the region</div>
-            </div>
-            <div style="background:white;border:1px solid var(--border);border-radius:6px;padding:24px;text-align:center;">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:500;color:var(--crimson);line-height:1;">Same</div>
-              <div style="font-size:13px;color:var(--ink-mid);margin-top:6px;line-height:1.4;">Cardiologist performs diagnosis and intervention</div>
-            </div>
-            <div style="background:white;border:1px solid var(--border);border-radius:6px;padding:24px;text-align:center;">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:500;color:var(--crimson);line-height:1;">Nelson</div>
-              <div style="font-size:13px;color:var(--ink-mid);margin-top:6px;line-height:1.4;">Procedure right here in your community</div>
-            </div>
-          </div>
-        </div>
+      <div class="section-head reveal">
+        <span class="eyebrow">Watch the video</span>
+        <h2>What to expect when you visit the cath lab</h2>
+      </div>
+      <div class="video-embed reveal reveal-d1" style="max-width:900px;">
+        <iframe src="https://www.youtube.com/embed/KJDJrVZ6NT0?modestbranding=1&amp;rel=0" title="What to expect when you visit the cath lab" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </section>
 
   <!-- PROCEDURES -->
-  <section class="section" id="procedures">
+  <section class="section-sm" style="background:var(--surface);border-top:1px solid var(--border);">
     <div class="section-wrap">
-      <div class="reveal" style="margin-bottom:40px;">
-        <span class="eyebrow">Procedures</span>
-        <h2>What our angiography suite can do</h2>
-        <p class="lead">Our catheterisation laboratory handles both diagnostic procedures — finding the problem — and interventional procedures — treating it.</p>
-      </div>
-      <div class="two-col" style="align-items:start;gap:48px;">
-        <div>
-          <div style="margin-bottom:8px;padding-bottom:16px;border-bottom:1px solid var(--border);">
-            <span style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);">Diagnostic</span>
-          </div>
-          <div class="reveal">
-            <div style="padding:24px 0;border-bottom:1px solid var(--surface-mid);">
-              <h3 style="font-size:1.15rem;margin-bottom:6px;color:var(--ink);">Coronary Angiogram</h3>
-              <p style="font-size:14px;color:var(--ink-mid);line-height:1.65;">A dye injected into the coronary arteries under X-ray imaging allows us to see blockages or narrowings that may be restricting blood flow to the heart muscle. Usually performed via a small incision at the wrist (radial access).</p>
-            </div>
-            <div style="padding:24px 0;border-bottom:1px solid var(--surface-mid);">
-              <h3 style="font-size:1.15rem;margin-bottom:6px;color:var(--ink);">Left Heart Catheterisation</h3>
-              <p style="font-size:14px;color:var(--ink-mid);line-height:1.65;">Assessment of pressures within the heart chambers and large vessels, helping to characterise valve disease, heart muscle function, and certain congenital conditions.</p>
-            </div>
-            <div style="padding:24px 0;border-bottom:1px solid var(--surface-mid);">
-              <h3 style="font-size:1.15rem;margin-bottom:6px;color:var(--ink);">Intracoronary Physiological Assessment (FFR / iFR)</h3>
-              <p style="font-size:14px;color:var(--ink-mid);line-height:1.65;">Fractional flow reserve (FFR) and instantaneous wave-free ratio (iFR) measurements help determine whether a blockage is actually causing reduced blood flow to the heart — helping decide whether a stent is truly needed. Note: FFR requires avoiding caffeine before the procedure.</p>
-            </div>
-            <div style="padding:24px 0;border-bottom:1px solid var(--surface-mid);">
-              <h3 style="font-size:1.15rem;margin-bottom:6px;color:var(--ink);">Intravascular Ultrasound (IVUS)</h3>
-              <p style="font-size:14px;color:var(--ink-mid);line-height:1.65;">A miniature ultrasound probe on a catheter provides detailed images from inside the coronary artery — showing exactly how much plaque is present, its composition, and helping guide precise stent placement.</p>
-            </div>
-            <div style="padding:24px 0;">
-              <h3 style="font-size:1.15rem;margin-bottom:6px;color:var(--ink);">Optical Coherence Tomography (OCT)</h3>
-              <p style="font-size:14px;color:var(--ink-mid);line-height:1.65;">Uses light rather than ultrasound to achieve extremely high-resolution images of the inside of coronary arteries — providing even finer detail than IVUS. Used to optimise stent deployment and assess artery wall structure.</p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div style="margin-bottom:8px;padding-bottom:16px;border-bottom:1px solid var(--border);">
-            <span style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);">Interventional / Treatment</span>
-          </div>
-          <div class="reveal reveal-d1">
-            <div style="padding:24px 0;border-bottom:1px solid var(--surface-mid);">
-              <h3 style="font-size:1.15rem;margin-bottom:6px;color:var(--ink);">Percutaneous Coronary Intervention (PCI / Stenting)</h3>
-              <p style="font-size:14px;color:var(--ink-mid);line-height:1.65;">A tiny balloon is inflated inside a narrowed coronary artery, followed by the placement of a metal mesh stent to hold the artery open and restore blood flow. This is the treatment for many types of coronary artery disease and some heart attacks.</p>
-            </div>
-            <div style="padding:24px 0;border-bottom:1px solid var(--surface-mid);">
-              <h3 style="font-size:1.15rem;margin-bottom:6px;color:var(--ink);">Pacemaker &amp; Defibrillator Implantation</h3>
-              <p style="font-size:14px;color:var(--ink-mid);line-height:1.65;">Implantation of permanent pacemakers (to treat slow or irregular heart rhythms) and implantable cardioverter-defibrillators (ICDs) to protect against life-threatening fast rhythms.</p>
-            </div>
-            <div style="padding:24px 0;">
-              <h3 style="font-size:1.15rem;margin-bottom:6px;color:var(--ink);">Electrophysiology &amp; Ablation</h3>
-              <p style="font-size:14px;color:var(--ink-mid);line-height:1.65;">Mapping of abnormal electrical pathways causing heart rhythm problems, and treatment by ablation — using heat or cold energy to scar and correct the abnormal tissue.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- WHAT TO EXPECT -->
-  <section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-    <div class="section-wrap">
-      <div class="reveal" style="margin-bottom:48px;max-width:560px;">
-        <span class="eyebrow">What to expect</span>
-        <h2>Your procedure, step by step</h2>
-        <p style="color:var(--ink-mid);margin-top:12px;">Most procedures are day cases — you'll be home the same day.</p>
-      </div>
-      <div class="steps-list reveal reveal-d1" style="max-width:680px;">
-        <div class="step-row">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h3>Pre-procedure preparation</h3>
-            <p>You'll receive specific instructions about fasting and medications. A pre-admission call from our nursing team will walk you through what to expect and answer any questions.</p>
-          </div>
-        </div>
-        <div class="step-row">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h3>Arrival and preparation</h3>
-            <p>You'll arrive at the clinic, change into a gown, and have an IV line placed. Your cardiologist will go through the procedure with you and address any last-minute concerns before you sign a consent form.</p>
-          </div>
-        </div>
-        <div class="step-row">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h3>The procedure</h3>
-            <p>Most diagnostic procedures take 30–60 minutes. You'll be awake throughout, with local anaesthetic at the access site. You may be sedated to keep you comfortable. Our team will talk you through what's happening.</p>
-          </div>
-        </div>
-        <div class="step-row">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h3>Recovery and results</h3>
-            <p>You'll rest in our recovery area for a few hours while we monitor you. Your cardiologist will come and explain what was found and what it means. For most day cases, you'll be home by afternoon.</p>
-          </div>
-        </div>
-        <div class="step-row">
-          <div class="step-num">5</div>
-          <div class="step-content">
-            <h3>Follow-up</h3>
-            <p>We'll arrange a follow-up appointment to review your progress, adjust medications if needed, and answer any questions once you've had time to digest the results. A report will also be sent to your GP.</p>
-          </div>
+      <div class="detail-row reveal" id="angiogram">
+        <img src="images/original-site/angio-angiogram.jpg" alt="Coronary angiogram image" loading="lazy">
+        <div>
+          <h2>Angiogram</h2>
+          <span class="subtitle">(also coronary angiogram, cardiac catheterisation)</span>
+          <p>This is a special x-ray test to actually take pictures of the arteries of the heart. It is a very safe test and is performed under local anaesthetic. A tiny tube is passed to the heart via an artery in either the leg or wrist and moving x-ray pictures recorded as a special dye is injected into the arteries. This gives us a road map of the arteries and shows up any blockages or narrowings. During this test the valves, pumping function and oxygen levels in the heart can also be assessed.</p>
+          <p>Remember this is an investigation not a treatment, which is why it is much cheaper than angioplasty and stent insertion.</p>
+          <a class="pdf-link" href="https://www.topofthesouthcardiology.co.nz/site_files/26216/upload_files/PRIVATEPCIconsentform.pdf?dl=1">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Download consent form (PDF)
+          </a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- PRACTICAL INFO -->
-  <section class="section">
-    <div class="section-wrap">
-      <div class="reveal" style="margin-bottom:40px;">
-        <span class="eyebrow">Preparing for your procedure</span>
-        <h2>Practical information</h2>
-      </div>
-      <div class="three-col">
-        <div class="feature-card reveal reveal-d1">
-          <div class="feature-card-icon">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 style="font-size:1.1rem;margin-bottom:8px;">Fasting</h3>
-          <p style="font-size:14px;color:var(--ink-mid);">You'll typically be asked to fast from midnight the night before, or from 6 hours before your procedure time. Water and essential medications are usually allowed — your specific instructions will be confirmed when your appointment is booked.</p>
-        </div>
-        <div class="feature-card reveal reveal-d2">
-          <div class="feature-card-icon">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 style="font-size:1.1rem;margin-bottom:8px;">Medications</h3>
-          <p style="font-size:14px;color:var(--ink-mid);">Do not stop any medications unless specifically instructed by our team. Some blood-thinning medications may need to be paused. We'll review this with you individually before your procedure.</p>
-        </div>
-        <div class="feature-card reveal reveal-d3">
-          <div class="feature-card-icon">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </div>
-          <h3 style="font-size:1.1rem;margin-bottom:8px;">Bring someone</h3>
-          <p style="font-size:14px;color:var(--ink-mid);">Please arrange for someone to drive you home — you will not be able to drive after sedation. It is also a good idea to have someone with you when you hear the results, as there can be a lot to take in.</p>
-        </div>
-        <div class="feature-card reveal reveal-d1">
-          <div class="feature-card-icon">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
-          </div>
-          <h3 style="font-size:1.1rem;margin-bottom:8px;">What to wear</h3>
-          <p style="font-size:14px;color:var(--ink-mid);">Loose, comfortable clothing works best. You'll change into a hospital gown for the procedure. Leave jewellery and valuables at home.</p>
-        </div>
-        <div class="feature-card reveal reveal-d2">
-          <div class="feature-card-icon">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
-          </div>
-          <h3 style="font-size:1.1rem;margin-bottom:8px;">Cost &amp; insurance</h3>
-          <p style="font-size:14px;color:var(--ink-mid);">Many angiographic procedures are covered by health insurance. We are a Southern Cross Affiliated Provider. For self-funded patients, costs will be discussed before your procedure so there are no surprises.</p>
-        </div>
-        <div class="feature-card reveal reveal-d3">
-          <div class="feature-card-icon">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 style="font-size:1.1rem;margin-bottom:8px;">Questions?</h3>
-          <p style="font-size:14px;color:var(--ink-mid);">Our team is happy to talk through any concerns before your procedure. Email us at <a href="mailto:clinicalsupport@topofthesouthcardiology.co.nz" style="color:var(--crimson);">clinicalsupport@topofthesouthcardiology.co.nz</a> — we'd much rather you arrive feeling informed and calm than arrive feeling anxious.</p>
+      <div class="detail-row reveal" id="pacemaker">
+        <img src="images/original-site/angio-pacemaker.jpg" alt="Pacemaker device" loading="lazy">
+        <div>
+          <h2>Pacemaker insertion</h2>
+          <p>If your doctor has suggested that you have a pacemaker fitted, it is because you have an abnormality in the electrical conduction system of your heart. Please download our full information sheet taking you through the whole process.</p>
+          <a class="pdf-link" href="https://www.topofthesouthcardiology.co.nz/site_files/26216/upload_files/Privatepacemakerinfo.pdf?dl=1">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Pacemaker information sheet (PDF)
+          </a>
         </div>
       </div>
+
+      <div class="detail-row reveal" id="stent">
+        <img src="images/original-site/angio-stent.jpg" alt="Coronary stent illustration" loading="lazy">
+        <div>
+          <h2>Coronary Angioplasty &amp; Stenting</h2>
+          <p>This is a treatment for narrowed heart arteries, which cause angina. It is performed in the same way as an angiogram from the leg or wrist, avoiding the need for open-heart surgery. A tiny balloon is used to stretch open the narrowed or blocked artery and following this a metal coil (stent) is stretched open and left behind in the artery to provide a scaffold to reduce the chance of the artery re-narrowing.</p>
+        </div>
+      </div>
+
+      <div class="detail-row reveal" id="catheterisation">
+        <img src="images/original-site/angio-rhc.jpg" alt="Right heart catheterisation" loading="lazy">
+        <div>
+          <h2>Right Heart Catheterisation</h2>
+          <p>This is used to gain information about your valves and lungs. Information is obtained by passing a small catheter through the vein in your arm into the right side of your heart and lungs. This investigation provides additional information often required when assessing heart valve disease and increased pressures in the lungs.</p>
+        </div>
+      </div>
+
+      <div class="detail-row reveal" id="ffr">
+        <img src="images/original-site/angio-ffr.jpg" alt="Fractional flow reserve measurement" loading="lazy">
+        <div>
+          <h2>Fractional Flow Reserve Assessment (FFR)</h2>
+          <p>If a narrowing is identified in a coronary artery it is not always clear if it is important and needs fixing or not. FFR uses a fine wire to measure the change in pressure either side of the narrowing to determine whether or not a stent should be placed. In order to measure the pressure accurately you will be given a drug called adenosine. For this reason you will be advised not to drink tea or coffee on the morning of the procedure as caffeine interferes with adenosine.</p>
+        </div>
+      </div>
+
+      <div class="detail-row reveal" id="ivus">
+        <img src="images/original-site/angio-ivus.jpg" alt="Intra vascular ultrasound image" loading="lazy">
+        <div>
+          <h2>Intra Vascular Ultrasound (IVUS)</h2>
+          <p>This is a small ultrasound probe that actually passes down a coronary artery giving detailed information of the shape, size and amount of disease within the artery. It is used to decide if a stent is well placed or required. It can help determine if bypass surgery is needed.</p>
+        </div>
+      </div>
+
+      <div class="detail-row reveal" id="oct">
+        <img src="images/original-site/angio-oct.png" alt="Optical coherence tomography image" loading="lazy">
+        <div>
+          <h2>Optical Coherence Tomography (OCT)</h2>
+          <p>This is similar to IVUS but uses light instead of ultrasound to achieve its images. It is a new technique which is being increasingly used as its pictures are far more detailed than those achieved with IVUS. As with IVUS it provides information regarding shape and size of arteries but also amount and type of fat build up.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section-sm" style="background:linear-gradient(135deg,#1A0D10 0%,#2D1420 100%);">
+  <section class="section-sm" style="background:var(--crimson);">
     <div class="section-wrap" style="text-align:center;">
-      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:white;margin-bottom:24px;font-style:italic;">Referred for an angiography procedure?</p>
-      <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;">Find out what happens after your referral and what to expect at your appointment.</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:white;margin-bottom:24px;font-style:italic;">Questions about a procedure?</p>
+      <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;">For all referral information and clinical concerns please email us — we will contact you when our cardiologists have reviewed your referral.</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="referred.html" class="btn" style="background:var(--crimson);color:white;">After your referral</a>
-        <a href="contact.html" class="btn" style="background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.35);">Contact us</a>
+        <a href="contact.html" class="btn" style="background:white;color:var(--crimson);">Contact us</a>
       </div>
     </div>
   </section>
@@ -344,25 +160,30 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="branding-assets/logo-white.png" alt="Top of the South Cardiology">
-        <p>Specialist cardiology for the Nelson and Marlborough regions. Serving our community for over 20 years.</p>
-      </div>
-      <div class="footer-col">
-        <h4>For Patients</h4>
-        <a href="referred.html">I've been referred</a>
-        <a href="self-refer.html">Do I need a cardiologist?</a>
-        <a href="tests.html">Outpatient tests</a>
-        <a href="angiography.html">Angiography suite</a>
-      </div>
-      <div class="footer-col">
-        <h4>Our practice</h4>
-        <a href="team.html">Meet the team</a>
-        <a href="gp.html">For GPs &amp; referrers</a>
-        <a href="contact.html">Contact &amp; locations</a>
+        <p>Our mission: to give our community the very best heart care, with compassion, respect, understanding and expertise.</p>
+        <a href="https://apply.southerncross.co.nz/society/for-members/claims/affiliated-provider.aspx"><img src="icons-affiliates/southern-cross.jpg" alt="Southern Cross Affiliated Provider" style="height:64px;width:auto;margin-top:24px;border-radius:4px;" loading="lazy"></a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <p><a href="mailto:clinicalsupport@topofthesouthcardiology.co.nz" style="color:var(--ink-light);text-decoration:none;">clinicalsupport@<br>topofthesouthcardiology.co.nz</a></p>
-        <p style="margin-top:8px;font-size:13px;">349-355 Lower Queen Street<br>Richmond, Nelson</p>
+        <p style="margin-top:8px;font-size:13px;">Dr Foley &amp; Dr Pegg — urgent appointment changes only: 027 229 5860</p>
+        <p style="font-size:13px;">Dr Fisher — urgent appointment changes only: 027 229 5830</p>
+        <p style="font-size:13px;">Postal address: PO Box 3744, Richmond 7050</p>
+      </div>
+      <div class="footer-col">
+        <h4>Outpatient clinics</h4>
+        <p>Lower Queen Street Health<br>349-355 Lower Queen Street,<br>Richmond, Nelson</p>
+        <p style="margin-top:12px;">Nelson Hospital<br>Tipahi Street, Nelson 7010</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="team.html">Meet the team</a>
+        <a href="tests.html">Out patient tests</a>
+        <a href="angiography.html">Angiography suite</a>
+        <a href="useful-links.html">Useful links</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -372,7 +193,6 @@
   </footer>
 
   <script>
-    // Nav
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => {
@@ -381,117 +201,10 @@
       hamburger.setAttribute('aria-expanded', open);
       mobileMenu.setAttribute('aria-hidden', !open);
     });
-
-    // Scroll reveals
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // ─── Flowing background paths (ported from BackgroundPaths / framer-motion) ─────
-    (function () {
-      const svg = document.getElementById('bg-paths-svg');
-      if (!svg) return;
-
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      // Generate cubic-bezier path string matching the original component formula
-      function pathD(i, pos) {
-        const x0 = -380 - i * 5 * pos;
-        const y0 = -189 + i * 6;
-        const x1 = -312 - i * 5 * pos;
-        const y1 =  216 - i * 6;
-        const x2 =  152 - i * 5 * pos;
-        const y2 =  343 - i * 6;
-        const x3 =  616 - i * 5 * pos;
-        const y3 =  470 - i * 6;
-        const x4 =  684 - i * 5 * pos;
-        const y4 =  875 - i * 6;
-        return `M${x0} ${y0}C${x0} ${y0} ${x1} ${y1} ${x2} ${y2}C${x3} ${y3} ${x4} ${y4} ${x4} ${y4}`;
-      }
-
-      // Build all 72 paths (36 × 2 directions) and append to SVG
-      const items = [];
-      [1, -1].forEach(pos => {
-        for (let i = 0; i < 36; i++) {
-          const el = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-          el.setAttribute('d', pathD(i, pos));
-          el.setAttribute('fill', 'none');
-          el.setAttribute('stroke-width', (0.5 + i * 0.03).toFixed(2));
-          svg.appendChild(el);
-          items.push({ el, i });
-        }
-      });
-
-      // Measure path lengths now they're in the DOM, set initial dash state
-      items.forEach(m => {
-        const len  = m.el.getTotalLength();
-        const dash = len * 0.3;          // show 30% of path at any time (matches original pathLength 0.3→1 range midpoint)
-        const baseOp = Math.min(0.015 + m.i * 0.003, 0.12);
-        const dur  = (20 + Math.random() * 10) * 1000;
-        const phase = Math.random();     // randomise starting position along path
-
-        m.len    = len;
-        m.dash   = dash;
-        m.baseOp = baseOp;
-        m.dur    = dur;
-        m.phase  = phase;
-
-        m.el.style.strokeDasharray  = `${dash} ${len}`;
-        m.el.style.strokeDashoffset = `${-(phase * len)}`;
-        m.el.setAttribute('stroke', `rgba(255,255,255,${baseOp.toFixed(3)})`);
-      });
-
-      // Reduced-motion: static snapshot, no RAF loop
-      if (reduced) return;
-
-      // Animation loop: scroll dashoffset + breathe opacity (matches framer pathOffset [0,1,0] & opacity [0.3,0.6,0.3])
-      function tick(now) {
-        items.forEach(m => {
-          const t      = ((now / m.dur) + m.phase) % 1;
-          const offset = -(t * m.len);
-          const pulse  = 0.4 + 0.2 * Math.sin(t * Math.PI * 2); // 0.4 → 0.6 → 0.4
-          m.el.style.strokeDashoffset = offset;
-          m.el.setAttribute('stroke', `rgba(255,255,255,${(m.baseOp * (0.5 + pulse)).toFixed(3)})`);
-        });
-        requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    })();
-
-    // ─── Letter-drop entrance for hero headline (matches framer spring stagger) ────
-    (function () {
-      const h1 = document.getElementById('angio-title');
-      if (!h1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      let delay = 0.1; // initial delay so it starts after page paint
-
-      function wrapLetters(node) {
-        if (node.nodeType === Node.TEXT_NODE) {
-          const text = node.textContent;
-          const frag = document.createDocumentFragment();
-          for (let i = 0; i < text.length; i++) {
-            const ch = text[i];
-            if (ch === ' ' || ch === '\n') {
-              frag.appendChild(document.createTextNode(ch));
-              delay += 0.018;
-            } else {
-              const span = document.createElement('span');
-              span.className = 'letter-anim';
-              span.style.animationDelay = delay.toFixed(3) + 's';
-              span.textContent = ch;
-              frag.appendChild(span);
-              delay += 0.032;
-            }
-          }
-          node.parentNode.replaceChild(frag, node);
-        } else if (node.nodeType === Node.ELEMENT_NODE && node.nodeName !== 'BR') {
-          Array.from(node.childNodes).forEach(wrapLetters);
-        }
-      }
-
-      Array.from(h1.childNodes).forEach(wrapLetters);
-    })();
   </script>
 </body>
 </html>

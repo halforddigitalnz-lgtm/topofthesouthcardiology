@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top of the South Cardiology — Expert Heart Care, Nelson &amp; Marlborough</title>
+  <title>Top of the South Cardiology — The Nelson Marlborough Cardiology Team</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -18,11 +18,11 @@
         <a href="index.html"><img src="branding-assets/logo-black.png" alt="Top of the South Cardiology"></a>
       </div>
       <ul class="nav-links">
-        <li><a href="referred.html">For Patients</a></li>
-        <li><a href="tests.html">Outpatient Tests</a></li>
+        <li><a href="index.html" style="color:var(--crimson);">Home</a></li>
+        <li><a href="team.html">Meet the Team</a></li>
+        <li><a href="tests.html">Out Patient Tests</a></li>
         <li><a href="angiography.html">Angiography Suite</a></li>
-        <li><a href="team.html">Our Team</a></li>
-        <li><a href="gp.html">For GPs</a></li>
+        <li><a href="useful-links.html">Useful Links</a></li>
         <li><a href="contact.html" class="nav-cta">Contact</a></li>
       </ul>
       <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -30,213 +30,286 @@
       </button>
     </div>
     <div class="nav-mobile" id="mobile-menu" aria-hidden="true">
-      <a href="referred.html">For Patients</a>
-      <a href="tests.html">Outpatient Tests</a>
+      <a href="index.html" style="color:var(--crimson);">Home</a>
+      <a href="team.html">Meet the Team</a>
+      <a href="tests.html">Out Patient Tests</a>
       <a href="angiography.html">Angiography Suite</a>
-      <a href="team.html">Our Team</a>
-      <a href="gp.html">For GPs</a>
+      <a href="useful-links.html">Useful Links</a>
       <a href="contact.html" class="nav-cta-mobile">Contact us</a>
     </div>
   </nav>
 
   <!-- ═══ HERO ═══ -->
-  <section class="hero">
-    <div class="hero-image">
-      <img src="images/originals/team-photo.jpg" alt="The Top of the South Cardiology team">
+  <section class="hero" id="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="images/originals/group-photo.jpg" alt="" id="hero-img">
     </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
-      <span class="eyebrow eyebrow-crimson">Nelson · Marlborough · New Zealand</span>
-      <h1>Heart care,<br><em>close to home</em></h1>
-      <p>Specialist cardiology delivered by a team who knows this region — and the people who live here. No need to travel to Christchurch or Wellington.</p>
+      <span class="eyebrow">Nelson · Marlborough · New Zealand</span>
+      <h1>The Nelson Marlborough<br><em>Cardiology Team</em></h1>
+      <p>Our mission: to give our community the very best heart care, with compassion, respect, understanding and expertise.</p>
       <div class="hero-actions">
-        <a href="referred.html" class="btn btn-primary">I've been referred</a>
-        <a href="gp.html" class="btn btn-outline">For GPs</a>
+        <a href="#referral" class="btn btn-primary">How to see a cardiologist</a>
+        <a href="contact.html" class="btn btn-outline-light">Contact us</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══ THREE DOORS ═══ -->
-  <div class="three-doors">
-    <div class="three-doors-inner">
-      <div class="three-doors-header">
-        <span class="eyebrow">Where would you like to start?</span>
-        <h2>We're here for you,<br>whatever brings you to us</h2>
-        <p>Choose the path that fits your situation and we'll guide you from there.</p>
-      </div>
-      <div class="doors-grid">
-
-        <a href="referred.html" class="door reveal reveal-d1">
-          <div class="door-icon">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <h3>I've been referred by my GP</h3>
-          <p>You don't need to do anything right now — we'll be in touch. Find out what to expect and how to prepare for your first appointment.</p>
-          <span class="door-link">
-            What happens next
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </span>
-        </a>
-
-        <a href="self-refer.html" class="door reveal reveal-d2">
-          <div class="door-icon">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          </div>
-          <h3>I think I might need a cardiologist</h3>
-          <p>Wondering whether your symptoms warrant specialist care? We explain what cardiologists see, how referrals work, and what it costs.</p>
-          <span class="door-link">
-            Find out if you need us
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </span>
-        </a>
-
-        <a href="gp.html" class="door reveal reveal-d3">
-          <div class="door-icon">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-          </div>
-          <h3>I'm a GP referring a patient</h3>
-          <p>How to refer, what to include in your letter, and what our team needs to arrange a timely appointment for your patient.</p>
-          <span class="door-link">
-            Referral information for GPs
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </span>
-        </a>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ REASSURANCE BAR ═══ -->
+  <!-- ═══ KEY FACTS BAR ═══ -->
   <div class="reassurance-bar">
     <div class="reassurance-inner">
       <div class="reassurance-item">
-        <svg class="reassurance-icon" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <svg class="reassurance-icon" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         <div class="reassurance-text">
-          <strong>We'll contact you directly</strong>
-          <span>Once we receive your referral, there's nothing more you need to do — we'll be in touch to arrange everything.</span>
+          <strong>A referral is required</strong>
+          <span>You will need to be referred by your GP or practice nurse, who will send us a referral letter with all your details.</span>
         </div>
       </div>
       <div class="reassurance-item">
-        <svg class="reassurance-icon" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <svg class="reassurance-icon" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
         <div class="reassurance-text">
-          <strong>Seen right here in the region</strong>
-          <span>Our clinics are in Nelson and Marlborough — you won't need to travel to Christchurch or Wellington for specialist care.</span>
+          <strong>Please don't ring for an appointment</strong>
+          <span>We will contact you as soon as we have received your referral letter and the cardiologists have determined what tests might be appropriate.</span>
         </div>
       </div>
       <div class="reassurance-item">
         <svg class="reassurance-icon" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
         <div class="reassurance-text">
-          <strong>Specialist care you can trust</strong>
-          <span>Our cardiologists have decades of combined experience and access to a fully-equipped cardiac catheterisation laboratory.</span>
+          <strong>Southern Cross Affiliated Provider</strong>
+          <span>If you are with Southern Cross you simply need to give us your membership number and, as an affiliated provider, we will do the rest for you.</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══ TEAM PREVIEW ═══ -->
+  <!-- ═══ HOW TO SEE A CARDIOLOGIST ═══ -->
+  <section class="section" id="referral">
+    <div class="section-wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Referrals</span>
+        <h2>How to see a cardiologist</h2>
+      </div>
+      <div class="two-col">
+        <div class="feature-card reveal reveal-d1">
+          <h3>If you have insurance</h3>
+          <p style="margin-bottom:14px;">Typically if you have insurance you will need to be referred by your GP or practice nurse who will send us a referral letter. It is often a good idea to contact your insurance company beforehand to ensure that you are covered and that you have "authorisation" to see us. If you are with <a href="https://www.southerncross.co.nz/society" style="color:var(--crimson);text-decoration:underline;">Southern Cross</a> you simply need to give us your membership number and as an affiliate provider we will do the rest for you.</p>
+          <p>Please don't ring for appointment — we will contact you as soon as we have received your referral letter and the cardiologists have determined what tests might be appropriate.</p>
+        </div>
+        <div class="feature-card reveal reveal-d2">
+          <h3>If you are not covered by insurance</h3>
+          <p style="margin-bottom:14px;">We still require a referral from your GP or practice nurse as it provides us with all your details. When we receive your referral we will call you.</p>
+          <p>It is also common for people to want the reassurance of a test such as a 24h ECG or echocardiogram that cannot be funded through the public service.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-d2" style="margin-top:32px;">
+        <a href="mailto:clinicalsupport@topofthesouthcardiology.co.nz" class="btn btn-primary">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEW FOR 2024 ═══ -->
+  <section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="section-wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What's new</span>
+        <h2>Our newest services</h2>
+      </div>
+      <div class="three-col">
+        <div class="feature-card media-card reveal reveal-d1">
+          <img src="images/originals/heart-calcium-scan.jpg" alt="CT coronary angiography scanner" loading="lazy">
+          <div class="media-card-body">
+            <h3>CT coronary angiography and calcium scoring</h3>
+            <p>The very best way to determine your risk of having a heart attack.</p>
+          </div>
+        </div>
+        <div class="feature-card media-card reveal reveal-d2">
+          <img src="images/originals/patch-heart.jpg" alt="Patch heart recorder worn on the chest" loading="lazy">
+          <div class="media-card-body">
+            <h3>Patch heart recording for palpitations</h3>
+            <p>Best way to determine cause of palpitations.</p>
+          </div>
+        </div>
+        <div class="feature-card media-card reveal reveal-d3">
+          <img src="images/originals/extended-hours.jpg" alt="Clinic reception in the evening" loading="lazy">
+          <div class="media-card-body">
+            <h3>Extended hours of operation</h3>
+            <p>Day and evening availability.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:32px;">
+        <a href="tests.html" class="btn btn-outline">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT US / TEAM ═══ -->
   <section class="section">
     <div class="section-wrap">
       <div class="team-grid">
         <div class="team-photo-wrap reveal">
-          <img src="images/originals/team-photo.jpg" alt="The Nelson Marlborough Cardiology Team">
+          <img src="images/originals/team-photo.jpg" alt="The Nelson Marlborough Cardiology Team" loading="lazy" style="height:420px;">
         </div>
         <div class="team-text reveal reveal-d1">
-          <span class="eyebrow">Our team</span>
+          <span class="eyebrow">About us</span>
           <h2>The Nelson Marlborough Cardiology Team</h2>
           <div class="divider"></div>
-          <blockquote class="team-quote">"We give this community the very best heart care — with compassion, respect, and a genuine commitment to the people of the Top of the South."</blockquote>
-          <p>Our specialist cardiologists have been serving Nelson and Marlborough for over two decades. We're a small, experienced team — which means consistent care from people who know you, not a different face at every appointment.</p>
+          <blockquote class="team-quote">"Our mission: To give our community the very best heart care, with compassion, respect, understanding and expertise."</blockquote>
           <a href="team.html" class="btn btn-outline">Meet the team</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ STATS ═══ -->
-  <div class="stats-bar">
-    <div class="stats-inner">
-      <div class="stat reveal">
-        <div class="stat-num">20+</div>
-        <div class="stat-label">Years serving<br>the region</div>
-      </div>
-      <div class="stat reveal reveal-d1">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Specialist<br>cardiologists</div>
-      </div>
-      <div class="stat reveal reveal-d2">
-        <div class="stat-num">2</div>
-        <div class="stat-label">Clinic<br>locations</div>
-      </div>
-      <div class="stat reveal reveal-d3">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Types of cardiac<br>investigation offered</div>
-      </div>
+  <!-- ═══ REGION PARALLAX ═══ -->
+  <section class="region-section" id="region" aria-label="Nelson Marlborough region aerial view">
+    <div class="region-media" aria-hidden="true">
+      <img src="images/dji_0009.jpg" alt="" id="region-img" loading="lazy">
     </div>
-  </div>
-
-  <!-- ═══ REGION VIDEO ═══ -->
-  <section class="region-section" aria-label="Nelson Marlborough region aerial view">
-    <video autoplay muted loop playsinline>
-      <source src="images/originals/aerial-drone-footage.mp4" type="video/mp4">
-    </video>
     <div class="region-overlay" aria-hidden="true"></div>
     <div class="region-content">
       <span class="eyebrow">Our region</span>
       <h2>Nelson · Marlborough</h2>
-      <p>Specialist cardiac care at the heart of one of New Zealand's most loved regions. We're proud to serve this community.</p>
+      <p>Specialist heart care for the top of the South Island.</p>
+      <span class="region-location">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Lower Queen Street Health — 349-355 Lower Queen Street, Richmond, Nelson
+      </span>
     </div>
   </section>
 
-  <!-- ═══ SERVICES OVERVIEW ═══ -->
-  <section class="section" style="background: var(--surface); border-top: 1px solid var(--border);">
+  <!-- ═══ EXPLORE TILES ═══ -->
+  <section class="section" style="background:var(--surface);border-bottom:1px solid var(--border);">
     <div class="section-wrap">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+      <div class="section-head reveal">
+        <span class="eyebrow">Explore</span>
+        <h2>Find what you're looking for</h2>
+      </div>
+      <div class="doors-grid doors-grid-2row">
+        <a href="#why" class="door reveal">
+          <div class="door-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <h3>Why see a cardiologist?</h3>
+          <span class="door-link">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </a>
+        <a href="tests.html" class="door reveal reveal-d1">
+          <div class="door-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          </div>
+          <h3>Which investigation is best for me</h3>
+          <span class="door-link">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </a>
+        <a href="team.html" class="door reveal reveal-d2">
+          <div class="door-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <h3>Your Cardiologists</h3>
+          <span class="door-link">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </a>
+        <a href="angiography.html" class="door reveal">
+          <div class="door-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3.5l2.5-8 4 16 2.5-8H21"/></svg>
+          </div>
+          <h3>Angiography Suite</h3>
+          <span class="door-link">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </a>
+        <a href="useful-links.html" class="door reveal reveal-d1">
+          <div class="door-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+          </div>
+          <h3>Useful Links</h3>
+          <span class="door-link">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </a>
+        <a href="news.html" class="door reveal reveal-d2">
+          <div class="door-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+          </div>
+          <h3>News</h3>
+          <span class="door-link">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY SEE A CARDIOLOGIST ═══ -->
+  <section class="section" id="why">
+    <div class="section-wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Guidance</span>
+        <h2>Why see a Cardiologist</h2>
+      </div>
+      <ul class="why-list reveal reveal-d1">
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Unexplained chest pain</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Ongoing follow up of known heart disease</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Family history of premature cardiac disease</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Family history of premature cardiac death</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Palpitations and arrhythmias</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Murmur or known valvular heart disease</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>High blood pressure</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Raised cholesterol</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Heart failure, shortness of breath or ankle swelling</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Screening for heart disease</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Immigration matters</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Medical insurance work up</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Aviation / heavy goods vehicle licencing</li>
+        <li><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Medical clearance for specialist occupations</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ TELEMEDICINE ═══ -->
+  <section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="section-wrap">
+      <div class="two-col" style="align-items:center;">
         <div class="reveal">
-          <span class="eyebrow">What we offer</span>
-          <h2>A full range of cardiac investigations, close to home</h2>
-          <div class="divider"></div>
-          <p class="lead" style="max-width:400px;">From your first appointment through to diagnosis, treatment, and follow-up — our team handles every step of your cardiac care locally.</p>
-          <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;">
-            <a href="tests.html" class="btn btn-primary">Outpatient tests</a>
-            <a href="angiography.html" class="btn btn-outline">Angiography suite</a>
-          </div>
+          <img src="images/originals/telemedicine.jpeg" alt="Video consultation with a cardiologist" loading="lazy" style="border-radius:6px;width:100%;height:380px;object-fit:cover;">
         </div>
-        <div style="display:flex;flex-direction:column;gap:16px;" class="reveal reveal-d1">
-          <div class="feature-card">
-            <h3 style="font-size:1.25rem;margin-bottom:8px;">CT Coronary Angiography &amp; Calcium Scoring</h3>
-            <p style="font-size:14px;color:var(--ink-mid);">Non-invasive imaging to assess coronary artery disease risk. Often the first step in a cardiac work-up.</p>
-          </div>
-          <div class="feature-card">
-            <h3 style="font-size:1.25rem;margin-bottom:8px;">Echocardiography</h3>
-            <p style="font-size:14px;color:var(--ink-mid);">Ultrasound imaging of the heart to evaluate structure, valve function, and pumping efficiency.</p>
-          </div>
-          <div class="feature-card">
-            <h3 style="font-size:1.25rem;margin-bottom:8px;">24-Hour &amp; Patch ECG Monitoring</h3>
-            <p style="font-size:14px;color:var(--ink-mid);">Extended heart rhythm monitoring — from a standard Holter to a waterproof patch worn for weeks at a time.</p>
-          </div>
-          <a href="tests.html" class="btn-text" style="font-size:13px;display:inline-flex;align-items:center;gap:6px;margin-top:4px;">
-            View all tests
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
+        <div class="reveal reveal-d1">
+          <span class="eyebrow">Telemedicine</span>
+          <h2>Consultations by video or phone</h2>
+          <div class="divider"></div>
+          <p style="color:var(--ink-mid);font-size:16px;line-height:1.7;margin-bottom:24px;">If you have a phone, tablet or computer with a camera and microphone (most do) then we can provide consultations by video conference. No software or apps are needed — it's as simple as clicking a button. Alternatively we can simply talk over the phone.</p>
+          <p style="color:var(--ink-mid);font-size:16px;line-height:1.7;margin-bottom:32px;">Patients and doctors have found that it's actually much better and easier than they had expected. In fact many patients find it so convenient that they are choosing this as their preferred method of contact.</p>
+          <a href="contact.html" class="btn btn-outline">Get in touch</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ TELEMEDICINE ═══ -->
+  <!-- ═══ PARTNERING PRACTICES ═══ -->
   <section class="section">
     <div class="section-wrap">
-      <div class="two-col" style="align-items:center;">
-        <div class="reveal">
-          <img src="images/originals/telemedicine.jpeg" alt="Video consultation with a cardiologist" style="border-radius:6px;width:100%;height:380px;object-fit:cover;">
-        </div>
-        <div class="reveal reveal-d1">
-          <span class="eyebrow">Remote consultations</span>
-          <h2>Can't make it in? We can consult by video or phone</h2>
-          <div class="divider"></div>
-          <p style="color:var(--ink-mid);font-size:16px;line-height:1.7;margin-bottom:24px;">For follow-up appointments, results reviews, or patients coming from further afield across the Marlborough region, a video or phone consultation is a genuine option — no apps or special software required.</p>
-          <p style="color:var(--ink-mid);font-size:16px;line-height:1.7;margin-bottom:32px;">Just a phone or device with internet access, and we'll do the rest.</p>
-          <a href="contact.html" class="btn btn-outline">Get in touch</a>
-        </div>
+      <div class="section-head reveal">
+        <span class="eyebrow">Top of the South Clinic</span>
+        <h2>Our partnering practices</h2>
+      </div>
+      <div class="partner-row reveal reveal-d1">
+        <a href="http://topofthesouthclinic.nz/#respiratory" class="partner">
+          <img src="icons-affiliates/d0326f2b05949b3c2cfcc6bbfb7ca328.avif" alt="Top of the South Respiratory" loading="lazy">
+          <span>Respiratory</span>
+        </a>
+        <a href="http://topofthesouthclinic.nz/#neurology" class="partner">
+          <img src="icons-affiliates/72435e24ce533858aa44fbd04a29f8f2.avif" alt="Top of the South Neurology" loading="lazy">
+          <span>Neurology</span>
+        </a>
+        <a href="http://topofthesouthclinic.nz/#internal" class="partner">
+          <img src="icons-affiliates/a96b2d596215a791ba11571bc85ebde6.avif" alt="Top of the South Internal Medicine" loading="lazy">
+          <span>Internal Medicine</span>
+        </a>
       </div>
     </div>
   </section>
@@ -246,25 +319,30 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="branding-assets/logo-white.png" alt="Top of the South Cardiology">
-        <p>Specialist cardiology for the Nelson and Marlborough regions. Serving our community for over 20 years.</p>
-      </div>
-      <div class="footer-col">
-        <h4>For Patients</h4>
-        <a href="referred.html">I've been referred</a>
-        <a href="self-refer.html">Do I need a cardiologist?</a>
-        <a href="tests.html">Outpatient tests</a>
-        <a href="angiography.html">Angiography suite</a>
-      </div>
-      <div class="footer-col">
-        <h4>Our practice</h4>
-        <a href="team.html">Meet the team</a>
-        <a href="gp.html">For GPs &amp; referrers</a>
-        <a href="contact.html">Contact &amp; locations</a>
+        <p>Our mission: to give our community the very best heart care, with compassion, respect, understanding and expertise.</p>
+        <a href="https://apply.southerncross.co.nz/society/for-members/claims/affiliated-provider.aspx"><img src="icons-affiliates/southern-cross.jpg" alt="Southern Cross Affiliated Provider" style="height:64px;width:auto;margin-top:24px;border-radius:4px;"></a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <p><a href="mailto:clinicalsupport@topofthesouthcardiology.co.nz" style="color:var(--ink-light);text-decoration:none;">clinicalsupport@<br>topofthesouthcardiology.co.nz</a></p>
-        <p style="margin-top:8px;font-size:13px;">349-355 Lower Queen Street<br>Richmond, Nelson</p>
+        <p style="margin-top:8px;font-size:13px;">Dr Foley &amp; Dr Pegg — urgent appointment changes only: 027 229 5860</p>
+        <p style="font-size:13px;">Dr Fisher — urgent appointment changes only: 027 229 5830</p>
+        <p style="font-size:13px;">Postal address: PO Box 3744, Richmond 7050</p>
+      </div>
+      <div class="footer-col">
+        <h4>Outpatient clinics</h4>
+        <p>Lower Queen Street Health<br>349-355 Lower Queen Street,<br>Richmond, Nelson</p>
+        <p style="margin-top:12px;">Nelson Hospital<br>Tipahi Street, Nelson 7010</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="team.html">Meet the team</a>
+        <a href="tests.html">Out patient tests</a>
+        <a href="angiography.html">Angiography suite</a>
+        <a href="useful-links.html">Useful links</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -289,6 +367,46 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Scroll parallax + zoom (hero banner and region image)
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) {
+      const parallax = (sectionId, imgId, { zoom = true, strength = 18 } = {}) => {
+        const section = document.getElementById(sectionId);
+        const img = document.getElementById(imgId);
+        if (!section || !img) return;
+        let inView = false;
+        let ticking = false;
+
+        const update = () => {
+          ticking = false;
+          const rect = section.getBoundingClientRect();
+          const vh = window.innerHeight;
+          // 0 when the section enters the bottom of the viewport, 1 when it leaves the top
+          const progress = Math.min(1, Math.max(0, (vh - rect.top) / (vh + rect.height)));
+          const shift = (progress - 0.5) * strength;       // parallax travel, in % of image height
+          const scale = zoom ? 1.05 + progress * 0.1 : 1;  // gentle zoom-in as you scroll through
+          img.style.transform = `translate3d(0, ${shift}%, 0) scale(${scale})`;
+        };
+
+        const onScroll = () => {
+          if (inView && !ticking) { ticking = true; requestAnimationFrame(update); }
+        };
+
+        new IntersectionObserver(entries => {
+          inView = entries[0].isIntersecting;
+          if (inView) update();
+        }).observe(section);
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        update();
+      };
+
+      // hero zoom comes from the continuous CSS animation on .hero-media, so translate only
+      parallax('hero', 'hero-img', { zoom: false, strength: 24 });
+      parallax('region', 'region-img');
+    }
   </script>
 
 </body>

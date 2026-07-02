@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News — Top of the South Cardiology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .news-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, border-color 0.25s, transform 0.22s;
+    }
+    .news-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(139,26,46,0.25);
+      transform: translateY(-3px);
+    }
+    .news-card > img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-card-body {
+      padding: 24px 26px 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .news-source {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .news-card-body p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--ink);
+      flex: 1;
+      margin-bottom: 20px;
+    }
+    .news-card .door-link { margin-top: auto; }
+    @media (max-width: 1100px) { .news-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .news-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="index.html"><img src="branding-assets/logo-black.png" alt="Top of the South Cardiology"></a></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="team.html">Meet the Team</a></li>
+        <li><a href="tests.html">Out Patient Tests</a></li>
+        <li><a href="angiography.html">Angiography Suite</a></li>
+        <li><a href="useful-links.html">Useful Links</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobile-menu" aria-hidden="true">
+      <a href="index.html">Home</a>
+      <a href="team.html">Meet the Team</a>
+      <a href="tests.html">Out Patient Tests</a>
+      <a href="angiography.html">Angiography Suite</a>
+      <a href="useful-links.html">Useful Links</a>
+      <a href="contact.html" class="nav-cta-mobile">Contact us</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>News</span>
+      </div>
+      <span class="eyebrow eyebrow-crimson">In the media</span>
+      <h1>News</h1>
+    </div>
+  </div>
+
+  <!-- NEWS GRID -->
+  <section class="section">
+    <div class="section-wrap">
+      <div class="news-grid">
+
+        <a href="https://www.sialliance.health.nz/news-/sharing-local-success-stories/" class="news-card reveal">
+          <img src="images/news/item-02.jpg" alt="The cardiology team receiving their excellence award" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">South Island Alliance</span>
+            <p>Cardiology department and St John team earn excellence award at DHB Health Quality and Innovation Awards</p>
+            <span class="door-link">Read the article
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://www.stuff.co.nz/national/health/93751455/aeds-should-be-more-accessible-in-nelson-cardiologist-says" class="news-card reveal reveal-d1">
+          <img src="images/news/item-03.jpg" alt="Hands framing a photograph in a heart shape" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Stuff</span>
+            <p>A defibrillator is credited with helping to save Filemoni Fa'avae's life. Nelson hospital cardiologist Dr Tammy Pegg said it was extremely important for AEDs to be publicly available...</p>
+            <span class="door-link">Read the article
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://www.stuff.co.nz/nelson-mail/news/90188853/state-of-the-art-upgrade-for-cardiology-suite-at-nelson-hospital" class="news-card reveal reveal-d2">
+          <img src="images/news/item-09.jpg" alt="The cardiology team in the upgraded suite" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Nelson Mail · Stuff</span>
+            <p>State of the art upgrade for cardiology suite at Nelson Hospital</p>
+            <span class="door-link">Read the article
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://www.stuff.co.nz/nelson-mail/news/92644944/top-doctors-career-in-cardiology-inspired-by-fathers-heart-attack" class="news-card reveal">
+          <div class="news-card-body">
+            <span class="news-source">Nelson Mail · Stuff</span>
+            <p>Top doctor's career in cardiology inspired by father's heart attack</p>
+            <span class="door-link">Read the article
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://www.stuff.co.nz/nelson-mail/news/68432320/running-in-support-of-womens-heart-health" class="news-card reveal reveal-d1">
+          <img src="images/news/item-08.jpg" alt="Participants at the Mother's Day fun run" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Nelson Mail · Stuff</span>
+            <p>NMDH Board cardiologist Tammy Pegg speaks at health heart Mother's Day fun run</p>
+            <span class="door-link">Read the article
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://www.stuff.co.nz/nelson-mail/news/82148120/number-of-defibrillators-in-nelson-to-increase-thanks-to-initiative" class="news-card reveal reveal-d2">
+          <img src="images/news/item-12.jpg" alt="An AED defibrillator with St John staff" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Nelson Mail · Stuff</span>
+            <p>Number of defibrillators in Nelson to increase thanks to initiative</p>
+            <span class="door-link">Read the article
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://topofthesouthcardiology-vkit.rocketspark.co.nz/site_files/26216/upload_files/tackling_heart_disease_may_6_2015.pdf?dl=1" class="news-card reveal">
+          <img src="images/news/item-13.jpg" alt="A heart held in a hand with an ECG trace" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Press clipping</span>
+            <p>If you are going to have a heart attack then the Nelson region is the place to have it... the cardiologists at Nelson Hospital are reputed to be some of the best in the world.</p>
+            <span class="door-link">Read the clipping (PDF)
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://topofthesouthcardiology-vkit.rocketspark.co.nz/site_files/26216/upload_files/faster_diagnosis_2015.pdf?dl=1" class="news-card reveal reveal-d1">
+          <img src="images/news/item-16.jpg" alt="Clinical staff involved in the faster diagnosis process" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Press clipping</span>
+            <p>A new process in the DHB allows paramedics and doctors to diagnose and treat heart attacks faster</p>
+            <span class="door-link">Read the clipping (PDF)
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://topofthesouthcardiology-vkit.rocketspark.co.nz/site_files/26216/upload_files/region_in_good_heart.pdf?dl=1" class="news-card reveal reveal-d2">
+          <img src="images/news/item-17.jpg" alt="Dr Nick Fisher" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Press clipping</span>
+            <p>MAKING A DIFFERENCE: The Nelson Hospital Cardiology team delivers some of the highest-quality heart care in the country.</p>
+            <span class="door-link">Read the clipping (PDF)
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://topofthesouthcardiology-vkit.rocketspark.co.nz/site_files/26216/upload_files/sailor_at_heart.pdf?dl=1" class="news-card reveal">
+          <img src="images/news/item-20.jpg" alt="Dr Nick Fisher at sea during his Royal Navy service" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Press clipping</span>
+            <p>A sailor at heart... Dr Nick Fisher knows almost as much about ports and oceans as he does about hearts.</p>
+            <span class="door-link">Read the clipping (PDF)
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://topofthesouthcardiology-vkit.rocketspark.co.nz/site_files/26216/upload_files/WT_leadinglights.pdf?dl=1" class="news-card reveal reveal-d1">
+          <img src="images/news/item-21.jpg" alt="Wild Tomato Top 50 magazine feature" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Wild Tomato</span>
+            <p>Nick Fisher and Andrew Hamer voted "leading Lights" in Wild Tomato's Top 50</p>
+            <span class="door-link">Read the clipping (PDF)
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://topofthesouthcardiology-vkit.rocketspark.co.nz/site_files/26216/upload_files/citys_care_tops_list_aug_2013.pdf?dl=1" class="news-card reveal reveal-d2">
+          <img src="images/news/item-24.jpg" alt="Rescue helicopter crew transporting a patient" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Press clipping</span>
+            <p>Nelson City's health care tops NZ list. Nelson Hospital has the lowest rate of acute admission for heart failure in New Zealand</p>
+            <span class="door-link">Read the clipping (PDF)
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://topofthesouthcardiology-vkit.rocketspark.co.nz/site_files/26216/upload_files/the_nelson_mail_taking_heart_.pdf?dl=1" class="news-card reveal">
+          <img src="images/news/item-25.jpg" alt="Dr Nick Fisher performing a cardiac procedure" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Nelson Mail</span>
+            <p>Cardiologist Nick Fisher speaks with patient Des Molloy while performing a cardiac procedure at Nelson Hospital...</p>
+            <span class="door-link">Read the clipping (PDF)
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://topofthesouthcardiology-vkit.rocketspark.co.nz/site_files/26216/upload_files/nick_and_tammycopy.pdf?dl=1" class="news-card reveal reveal-d1">
+          <img src="images/news/item-28.jpg" alt="Wild Tomato feature on Nick and Tammy" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Press clipping</span>
+            <p>Working Together... Nick and Tammy Fisher</p>
+            <span class="door-link">Read the clipping (PDF)
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://topofthesouthcardiology-vkit.rocketspark.co.nz/site_files/26216/upload_files/cardiac_commanders2.pdf?dl=1" class="news-card reveal reveal-d2">
+          <img src="images/news/item-29.jpg" alt="Cardiac Commanders magazine feature" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Press clipping</span>
+            <p>Two unique surgeons at Nelson Hospital have built a cardiac unit with world-class capabilities.</p>
+            <span class="door-link">Read the clipping (PDF)
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://topofthesouthcardiology-vkit.rocketspark.co.nz/site_files/26216/upload_files/heart_operation_a_first.pdf?dl=1" class="news-card reveal">
+          <img src="images/news/item-32.jpg" alt="Dr Nick Fisher with patient Wairemana" loading="lazy">
+          <div class="news-card-body">
+            <span class="news-source">Press clipping</span>
+            <p>Cardiologist Nick Fisher with Wairemana, the first person to have the angioplasty operation at Nelson Hospital.</p>
+            <span class="door-link">Read the clipping (PDF)
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="branding-assets/logo-white.png" alt="Top of the South Cardiology">
+        <p>Our mission: to give our community the very best heart care, with compassion, respect, understanding and expertise.</p>
+        <a href="https://apply.southerncross.co.nz/society/for-members/claims/affiliated-provider.aspx"><img src="icons-affiliates/southern-cross.jpg" alt="Southern Cross Affiliated Provider" style="height:64px;width:auto;margin-top:24px;border-radius:4px;" loading="lazy"></a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><a href="mailto:clinicalsupport@topofthesouthcardiology.co.nz" style="color:var(--ink-light);text-decoration:none;">clinicalsupport@<br>topofthesouthcardiology.co.nz</a></p>
+        <p style="margin-top:8px;font-size:13px;">Dr Foley &amp; Dr Pegg — urgent appointment changes only: 027 229 5860</p>
+        <p style="font-size:13px;">Dr Fisher — urgent appointment changes only: 027 229 5830</p>
+        <p style="font-size:13px;">Postal address: PO Box 3744, Richmond 7050</p>
+      </div>
+      <div class="footer-col">
+        <h4>Outpatient clinics</h4>
+        <p>Lower Queen Street Health<br>349-355 Lower Queen Street,<br>Richmond, Nelson</p>
+        <p style="margin-top:12px;">Nelson Hospital<br>Tipahi Street, Nelson 7010</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="team.html">Meet the team</a>
+        <a href="tests.html">Out patient tests</a>
+        <a href="angiography.html">Angiography suite</a>
+        <a href="useful-links.html">Useful links</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Top of the South Cardiology. All rights reserved.</span>
+      <span>Nelson · Marlborough · New Zealand</span>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      mobileMenu.setAttribute('aria-hidden', !open);
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
