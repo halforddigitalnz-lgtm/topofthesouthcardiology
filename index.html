@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="branding-assets/favicon.png">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -42,17 +43,30 @@
 
   <!-- ═══ HERO ═══ -->
   <section class="hero" id="hero">
-    <div class="hero-media" aria-hidden="true">
-      <img src="images/originals/group-photo.jpg" alt="" id="hero-img">
+    <div class="hero-motif" aria-hidden="true">
+      <svg viewBox="0 0 600 600" fill="none">
+        <circle class="m-r1" cx="300" cy="300" r="284" stroke-width="0.8" stroke-dasharray="1430 355"/>
+        <circle class="m-r2" cx="300" cy="300" r="252" stroke-width="0.7" stroke-dasharray="1108 475"/>
+        <circle class="m-r3" cx="300" cy="300" r="222" stroke-width="1" stroke-dasharray="1245 150"/>
+        <circle class="m-r4" cx="300" cy="300" r="194" stroke-width="0.7" stroke-dasharray="850 369"/>
+        <circle class="m-r5" cx="300" cy="300" r="168" stroke-width="0.9" stroke-dasharray="950 105"/>
+        <circle class="m-r6" cx="300" cy="300" r="144" stroke-width="0.6" stroke-dasharray="700 205"/>
+        <circle class="m-r7" cx="300" cy="300" r="122" stroke-width="0.8" stroke-dasharray="590 176"/>
+        <circle class="m-r8" cx="300" cy="300" r="102" stroke-width="0.6" stroke-dasharray="480 161"/>
+      </svg>
     </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-content">
-      <span class="eyebrow">Nelson · Marlborough · New Zealand</span>
-      <h1>The Nelson Marlborough<br><em>Cardiology Team</em></h1>
-      <p>Our mission: to give our community the very best heart care, with compassion, respect, understanding and expertise.</p>
-      <div class="hero-actions">
-        <a href="#referral" class="btn btn-primary">How to see a cardiologist</a>
-        <a href="contact.html" class="btn btn-outline-light">Contact us</a>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="eyebrow">Nelson · Marlborough · New Zealand</span>
+        <h1>The Nelson Marlborough<br><em>Cardiology Team</em></h1>
+        <p>Our mission: to give our community the very best heart care, with compassion, respect, understanding and expertise.</p>
+        <div class="hero-actions">
+          <a href="#referral" class="btn btn-primary">How to see a cardiologist</a>
+          <a href="contact.html" class="btn btn-outline-light">Contact us</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="images/originals/group-photo.jpg" alt="The Nelson Marlborough Cardiology Team" id="hero-card-img">
       </div>
     </div>
   </section>
@@ -119,19 +133,19 @@
   <div class="stats-bar" aria-label="About the practice">
     <div class="stats-inner">
       <div class="stat reveal">
-        <div class="stat-num">20+</div>
+        <div class="stat-num" data-count="20" data-suffix="+">20+</div>
         <div class="stat-label">Years serving<br>the region</div>
       </div>
       <div class="stat reveal reveal-d1">
-        <div class="stat-num">3</div>
+        <div class="stat-num" data-count="3">3</div>
         <div class="stat-label">Specialist<br>cardiologists</div>
       </div>
       <div class="stat reveal reveal-d2">
-        <div class="stat-num">2</div>
+        <div class="stat-num" data-count="2">2</div>
         <div class="stat-label">Clinic<br>locations</div>
       </div>
       <div class="stat reveal reveal-d3">
-        <div class="stat-num">10+</div>
+        <div class="stat-num" data-count="10" data-suffix="+">10+</div>
         <div class="stat-label">Types of cardiac<br>investigation offered</div>
       </div>
     </div>
@@ -406,8 +420,33 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Scroll parallax + zoom (hero banner and region image)
+    // Count-up stats when the stats bar scrolls into view
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const statNums = document.querySelectorAll('.stat-num[data-count]');
+    if (statNums.length && !reduceMotion) {
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+      const statObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          statObserver.unobserve(entry.target);
+          const el = entry.target;
+          const target = parseInt(el.dataset.count, 10);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1400;
+          const start = performance.now();
+          const tick = now => {
+            const t = Math.min(1, (now - start) / duration);
+            el.textContent = Math.round(easeOut(t) * target) + suffix;
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      }, { threshold: 0.5 });
+      statNums.forEach(el => {
+        el.textContent = '0' + (el.dataset.suffix || '');
+        statObserver.observe(el);
+      });
+    }
     if (!reduceMotion) {
       const parallax = (sectionId, imgId, { zoom = true, strength = 18 } = {}) => {
         const section = document.getElementById(sectionId);
@@ -441,8 +480,7 @@
         update();
       };
 
-      // hero zoom comes from the continuous CSS animation on .hero-media, so translate only
-      parallax('hero', 'hero-img', { zoom: false, strength: 24 });
+      parallax('hero', 'hero-card-img', { zoom: false, strength: 8 });
       parallax('region', 'region-img');
     }
   </script>
