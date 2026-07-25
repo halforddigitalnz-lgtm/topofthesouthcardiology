@@ -217,7 +217,8 @@
   <!-- ═══ REGION PARALLAX ═══ -->
   <section class="region-section" id="region" aria-label="Nelson region aerial view">
     <div class="region-media" aria-hidden="true">
-      <img src="images/dji_0009.jpg" alt="" id="region-img" loading="lazy">
+      <video id="region-img" poster="images/dji_0009.jpg" muted loop playsinline preload="none"
+             data-src="images/originals/aerial-drone-footage.mp4"></video>
     </div>
     <div class="region-overlay" aria-hidden="true"></div>
     <div class="region-content">
@@ -391,6 +392,22 @@
 
     // Count-up stats when the stats bar scrolls into view
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Load the region video only once the section is near the viewport.
+    // Reduced motion keeps the poster still instead.
+    const regionVideo = document.getElementById('region-img');
+    if (regionVideo && regionVideo.dataset.src && !reduceMotion) {
+      const videoObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          videoObserver.unobserve(entry.target);
+          regionVideo.src = regionVideo.dataset.src;
+          regionVideo.play().catch(() => {});
+        });
+      }, { rootMargin: '400px' });
+      videoObserver.observe(regionVideo);
+    }
+
     const statNums = document.querySelectorAll('.stat-num[data-count]');
     if (statNums.length && !reduceMotion) {
       const easeOut = t => 1 - Math.pow(1 - t, 3);

@@ -477,7 +477,8 @@ html.js .hero-content .hero-actions  { animation: hero-in 0.8s cubic-bezier(0.22
   inset: 0;
   overflow: hidden;
 }
-.region-media img {
+.region-media img,
+.region-media video {
   position: absolute;
   top: -12%;
   left: 0;
@@ -488,7 +489,8 @@ html.js .hero-content .hero-actions  { animation: hero-in 0.8s cubic-bezier(0.22
   will-change: transform;
 }
 @media (prefers-reduced-motion: reduce) {
-  .region-media img { transform: none !important; top: 0; height: 100%; }
+  .region-media img,
+  .region-media video { transform: none !important; top: 0; height: 100%; }
 }
 .region-overlay {
   position: absolute;
