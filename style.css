@@ -688,6 +688,8 @@ html.js .hero-content .hero-actions  { animation: hero-in 0.8s cubic-bezier(0.22
 /* ─── TWO-COLUMN CONTENT ─── */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
 .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+/* Narrow intro column beside a longer list (steps, FAQ) */
+.aside-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
 
 /* ─── FEATURE CARD ─── */
 .feature-card {
@@ -995,6 +997,7 @@ a.service-row:hover { box-shadow: var(--shadow-lg); border-color: rgba(139,26,46
   .page-hero { padding: 52px 0 60px; }
   .page-hero-inner { padding: 0 24px; }
   .two-col { grid-template-columns: 1fr; gap: 40px; }
+  .aside-grid { grid-template-columns: 1fr; gap: 36px; }
   .three-col { grid-template-columns: 1fr; gap: 20px; }
   .tests-grid { grid-template-columns: 1fr; }
   .section { padding: 64px 0; }
