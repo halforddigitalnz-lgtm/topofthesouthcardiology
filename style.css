@@ -54,14 +54,14 @@ h1, h2, h3, h4 {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
-  height: 76px;
+  height: 96px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
 }
 .nav-logo { flex-shrink: 0; }
-.nav-logo img { height: 64px; width: auto; object-fit: contain; display: block; }
+.nav-logo img { height: 84px; width: auto; object-fit: contain; display: block; }
 .nav-links {
   display: flex;
   align-items: center;
@@ -218,8 +218,11 @@ h1, h2, h3, h4 {
   gap: 72px;
   align-items: center;
 }
+/* Card ratio tracks the team photo's own 1424x747 (1.906) so nobody is cropped off
+   the sides. The slight extra width leaves ~1.9% of vertical slack top and bottom —
+   just enough for the parallax to travel without exposing a gap or clipping heads. */
 .hero-card {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 1.98 / 1;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.14);
@@ -227,10 +230,9 @@ h1, h2, h3, h4 {
 }
 .hero-card img {
   width: 100%;
-  height: 114%;
-  margin-top: -7%;
+  height: 100%;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center center;
   will-change: transform;
 }
 @keyframes hero-in {
@@ -411,7 +413,9 @@ html.js .hero-content .hero-actions  { animation: hero-in 0.8s cubic-bezier(0.22
   align-items: center;
 }
 .team-photo-wrap { position: relative; border-radius: 6px; overflow: hidden; }
-.team-photo-wrap img { width: 100%; height: 520px; object-fit: cover; object-position: center 18%; }
+/* Natural height: this group photo runs people right to both edges, so any fixed
+   height plus object-fit:cover would crop someone out. */
+.team-photo-wrap img { width: 100%; height: auto; display: block; }
 .team-quote {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.55rem;
@@ -753,7 +757,7 @@ html.js .hero-content .hero-actions  { animation: hero-in 0.8s cubic-bezier(0.22
   grid-template-columns: 1.6fr 1fr 1fr 1fr;
   gap: 56px;
 }
-.footer-brand img { height: 56px; width: auto; object-fit: contain; margin-bottom: 20px; opacity: 0.85; }
+.footer-brand img { height: 78px; width: auto; object-fit: contain; margin-bottom: 24px; opacity: 0.9; }
 .footer-brand p { font-size: 13.5px; color: rgba(255,255,255,0.5); line-height: 1.65; max-width: 260px; }
 .footer-col h4 {
   font-family: 'DM Sans', sans-serif;
@@ -773,6 +777,17 @@ html.js .hero-content .hero-actions  { animation: hero-in 0.8s cubic-bezier(0.22
 }
 .footer-col a:hover { color: white; }
 .footer-col p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 8px; }
+.footer-col p a { color: rgba(255,255,255,0.55); transition: color 0.2s; }
+.footer-col p a:hover { color: white; }
+/* Each cardiologist heads their own contact block, so email and phone sit under the right name. */
+.footer-doc {
+  color: rgba(255,255,255,0.85) !important;
+  font-weight: 500;
+  margin-top: 22px;
+  margin-bottom: 6px !important;
+}
+.footer-col .footer-doc:first-of-type { margin-top: 0; }
+.footer-postal { margin-top: 22px; }
 .footer-bottom {
   max-width: 1280px;
   margin: 48px auto 0;
@@ -787,7 +802,7 @@ html.js .hero-content .hero-actions  { animation: hero-in 0.8s cubic-bezier(0.22
 }
 
 /* ─── UX POLISH ─── */
-[id] { scroll-margin-top: 100px; }
+[id] { scroll-margin-top: 120px; }
 a:focus-visible, button:focus-visible {
   outline: 2px solid var(--crimson);
   outline-offset: 3px;
@@ -987,7 +1002,7 @@ a.service-row:hover { box-shadow: var(--shadow-lg); border-color: rgba(139,26,46
   .reassurance-item:nth-child(2),
   .reassurance-item:last-child { padding-left: 0; }
   .team-grid { grid-template-columns: 1fr; gap: 40px; }
-  .team-photo-wrap img { height: 320px; }
+  .team-photo-wrap img { height: auto; }
   .stats-inner { grid-template-columns: 1fr 1fr; padding: 0 24px; }
   .stat { padding: 36px 20px; }
   .stat:nth-child(even) { border-right: none; }
@@ -1013,6 +1028,9 @@ a.service-row:hover { box-shadow: var(--shadow-lg); border-color: rgba(139,26,46
 }
 
 @media (max-width: 640px) {
+  /* Keep the enlarged logo prominent without letting the sticky bar eat the screen */
+  .nav-inner { height: 78px; }
+  .nav-logo img { height: 62px; }
   .stats-inner { grid-template-columns: 1fr 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
   .region-section { height: 360px; }

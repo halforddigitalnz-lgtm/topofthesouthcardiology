@@ -12,12 +12,30 @@ const MIME = {
   '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
   '.gif': 'image/gif', '.svg': 'image/svg+xml', '.ico': 'image/x-icon',
   '.mp4': 'video/mp4', '.webm': 'video/webm', '.avif': 'image/avif',
+  '.pdf': 'application/pdf', '.webp': 'image/webp',
   '.woff2': 'font/woff2', '.woff': 'font/woff', '.ttf': 'font/ttf',
 };
 
 createServer(async (req, res) => {
   try {
     let path = req.url.split('?')[0];
+
+    // Full-page preview: /full[/page.html] → whole page, reveals forced visible.
+    // The headless shell does not run JS, so scroll-reveal elements would otherwise
+    // stay at opacity 0. No height clamp, so a tall viewport captures the lot.
+    const fullMatch = path.match(/^\/full(?:\/([\w-]+\.html))?$/);
+    if (fullMatch) {
+      let html = (await readFile(join(__dirname, fullMatch[1] || 'index.html'))).toString();
+      const css = `<style>
+        .reveal, .hero-content, .hero-card { opacity: 1 !important; transform: none !important; animation: none !important; }
+        .nav { position: static !important; }
+      </style>`;
+      html = html.replace('<head>', '<head><base href="/">');
+      html = html.replace('</head>', css + '</head>');
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(html);
+      return;
+    }
 
     // Path-based scroll preview: /scroll/900[/page.html] → page with CSS offset
     const scrollMatch = path.match(/^\/scroll\/(\d+)(?:\/([\w-]+\.html))?$/);
